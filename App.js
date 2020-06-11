@@ -9,8 +9,9 @@ import Login from "./src/screens/login"
 import Registro from "./src/screens/registro"
 import Tabs from "./src/navigation/BottomTabNavigator"
 import IndvPost from './src/screens/indvPost'
-
+import TyC from './src/screens/TyC'
 import Perfil from './src/screens/Perfil'
+
 
 function HomeScreen({ navigation }) {
   return (
@@ -30,7 +31,16 @@ function PantallaLogin({navigation}) {
 function PantallaRegistro({navigation}) {
   return (
    
-    <Registro onPress={() => navigation.navigate('PerfilUser')}/>
+    <Registro onPress={() => navigation.navigate('PerfilUser')} onPress1={() => navigation.navigate('TyC')  }/>
+    
+
+  );
+}
+function TyCon({navigation}) {
+  return (
+   
+    <TyC onPress12={() => navigation.navigate('Registro')} />
+    
 
   );
 }
@@ -78,6 +88,7 @@ function App() {
         <Stack.Screen name="Home" component={HomeScreen}  />
         <Stack.Screen name="Login" component={PantallaLogin} />
         <Stack.Screen name="Registro" component={PantallaRegistro} />
+        <Stack.Screen name="TyC" component={TyCon} />
         <Stack.Screen name="Main" component={MainScr} />
         <Stack.Screen name="PostIndv" component={PostIndv} />
         <Stack.Screen name="PerfilUser" component={PerfilU} />

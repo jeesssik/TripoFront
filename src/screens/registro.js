@@ -4,6 +4,8 @@ import { Button,Text } from 'react-native-paper';
 import {  View,StyleSheet,SafeAreaView, ScrollView,ImageBackground  } from 'react-native'
 import Titulo from '../components/titulo';
 import TxtImput from '../components/textimput'
+import Chec from '../components/check'
+
 
 function Registro(props){
     return(
@@ -31,8 +33,15 @@ function Registro(props){
                             <TxtImput defecto='Contraseña' />
                             <TxtImput defecto='emal' />
                         
+                            <View  style={{marginLeft:40, marginTop:16, flexDirection:"row"}}>
+                            <Chec/>
+                            <Text style={{marginLeft:4, marginTop:10, color:"darkblue", textDecorationLine:"underline"}}  onPress={props.onPress1}>Acepto Términos y condiciones</Text>
+
+                            </View>
+                            
+
                             <View style={styles.bot}>
-                            <Button mode="text" onPress={() => console.log('Pressed')} onPress={props.onPress} >
+                            <Button mode="text" onPress={props.onPress} >
                                 <Text style={{fontSize:17, color:'darkblue'}}>Registrarme</Text>
                             </Button>
         
@@ -60,7 +69,7 @@ const styles = StyleSheet.create({
   
       },
     bot:{
-        marginTop:40, 
+        marginTop:20, 
         flexDirection:'row',
         justifyContent: 'center'
     }

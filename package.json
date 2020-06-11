@@ -21,6 +21,7 @@
     "react-native-gesture-handler": "~1.6.0",
     "react-native-looped-carousel": "^0.1.13",
     "react-native-material-textfield": "^0.16.1",
+    "react-native-modals": "^0.19.9",
     "react-native-paper": "^3.10.1",
     "react-native-reanimated": "^1.7.1",
     "react-native-safe-area-context": "^0.7.3",
