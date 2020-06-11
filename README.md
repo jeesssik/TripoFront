@@ -25,5 +25,4 @@ npm install @react-navigation/native
 
 
 
-
 <Modale titulo="Eliminar Publicación" linea1='¿Está seguro que desea elimiar la publicación?' botonI="Cancelar" botonD="Eliminar" />

@@ -10,6 +10,7 @@ import Registro from "./src/screens/registro"
 import Tabs from "./src/navigation/BottomTabNavigator"
 import IndvPost from './src/screens/indvPost'
 
+import Perfil from './src/screens/Perfil'
 
 function HomeScreen({ navigation }) {
   return (
@@ -29,7 +30,7 @@ function PantallaLogin({navigation}) {
 function PantallaRegistro({navigation}) {
   return (
    
-    <Registro onPress={() => navigation.navigate('Main')}/>
+    <Registro onPress={() => navigation.navigate('PerfilUser')}/>
 
   );
 }
@@ -58,6 +59,14 @@ function PostIndv({navigation}) {
 
 
 
+function PerfilU({navigation}){
+  return(
+                                       
+      <Perfil />
+
+  );
+}
+
 
 
 const Stack = createStackNavigator();
@@ -71,7 +80,7 @@ function App() {
         <Stack.Screen name="Registro" component={PantallaRegistro} />
         <Stack.Screen name="Main" component={MainScr} />
         <Stack.Screen name="PostIndv" component={PostIndv} />
-
+        <Stack.Screen name="PerfilUser" component={PerfilU} />
 
 
       </Stack.Navigator>
@@ -87,12 +96,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor:'#dfe1e6',
     justifyContent: 'center',
- 
-       
-  },
-  
-  
-  
+   }
   
 });
 
