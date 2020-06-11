@@ -1,10 +1,10 @@
 
 import React from 'react'
-import {  View,StyleSheet,Button,ImageBackground  } from 'react-native'
+import {  View,StyleSheet,ImageBackground,  } from 'react-native'
+import { Button,Text } from 'react-native-paper';
 
 import Titulo from '../components/titulo';
 import Social from '../components/socialIcon'
-import Texto from '../components/texto'
 import TxtImput from '../components/textimput'
 
 
@@ -27,29 +27,26 @@ function Login(props){
               
                 <TxtImput defecto='Usuario' />
                 <TxtImput defecto='Contrseña' />
+                <Text                  
+                  style={styles.registerTextStyle}
+                  onPress={props.onPress1}>
+                  ¿No tenés cuenta? Registrate
+                </Text>
+                  
               
                 <View style={styles.inputs}>
-                  <View style={[{ width: "45%",marginRight:1 }]}>
-                    <Button
-                       onPress={props.onPress}
-                      title="Iniciar Sesión"
-                      color="darkgreen"
-                    />
-                  </View>
-                  <View style={[{ width: "45%" }]}>
-                  <Button
-                       onPress={props.onPress1}
-                      title="Cancelar"
-                      color="darkred"
-                    />
-                  </View>
+                  
+                  <Button mode="text" onPress={props.onPress} >
+                  <Text style={{fontSize:17, color:'darkblue'}}>Inciar Sesión</Text>
+                    </Button>
+                    
 
                 </View>
                 
              
                 <View style={styles.social}>
                   <View style={styles.Tsocial}>
-                      <Texto valor='O Iniciar Sesión con'/>
+                      <Text style={{fontSize:17, marginTop:20}}> O Iniciar Sesión con</Text>
                   </View>
                     <View style={{flexDirection:'row', justifyContent: 'center'}}>
                       <Social tipo="google" titulo='Google'/>
@@ -94,7 +91,14 @@ const styles = StyleSheet.create({
       marginTop:40, 
       flexDirection:'row',
       justifyContent: 'center'
-    }
+    },
+    registerTextStyle: {
+      marginRight:40,
+      color: '#334191',
+      textAlign: 'right',
+      fontWeight: 'bold',
+      fontSize: 14,
+    },
     
 });
 

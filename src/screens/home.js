@@ -1,8 +1,8 @@
 
 import React from 'react'
-import {  View,StyleSheet,Button  } from 'react-native'
+import {  View,StyleSheet  } from 'react-native'
 import Titulo from '../components/titulo';
-
+import { Button,Text } from 'react-native-paper';
 function Home(props){
     return(
         <View style={styles.container}>
@@ -11,22 +11,14 @@ function Home(props){
         </View>
          <View style={{flexDirection:'row',flex:0.5}}>      
          <View style={[{ width: "50%" }]}>
-          <Button
-                  style={{height:25}}
-                  onPress={props.onPress}
-                  title="Iniciar Sesión"
-                  color="#841584"
-                  
-                />
+         <Button mode="text" onPress={() => console.log('Pressed')} onPress={props.onPress} >
+                  <Text style={{fontSize:16, color:'darkblue'}}>Inciar Sesión</Text>
+                    </Button>
           </View>
           <View style={[{ width: "50%" }]}>
-            <Button
-                style={{height:25}}
-                onPress={props.onPress1}
-                title="Registrarme"
-                color="#841584"
-                
-              />
+          <Button mode="text" onPress={() => console.log('Pressed')} onPress={props.onPress1} >
+                  <Text style={{fontSize:16, color:'darkblue'}}>Registrarme</Text>
+                    </Button>
           </View>
         </View> 
 

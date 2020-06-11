@@ -1,7 +1,7 @@
 import * as React from 'react';
 import 'react-native-gesture-handler';
-
-import {  View,StyleSheet,SafeAreaView, ScrollView,Button,ImageBackground  } from 'react-native'
+import { Button,Text } from 'react-native-paper';
+import {  View,StyleSheet,SafeAreaView, ScrollView,ImageBackground  } from 'react-native'
 import Titulo from '../components/titulo';
 import TxtImput from '../components/textimput'
 
@@ -32,12 +32,10 @@ function Registro(props){
                             <TxtImput defecto='emal' />
                         
                             <View style={styles.bot}>
-                                <Button
-                                onPress={props.onPress}
-                                title="Registrarme"
-                                color="#841584"
-                                accessibilityLabel="Learn more about this purple button"
-                                />
+                            <Button mode="text" onPress={() => console.log('Pressed')} onPress={props.onPress} >
+                                <Text style={{fontSize:17, color:'darkblue'}}>Registrarme</Text>
+                            </Button>
+        
                             </View>    
                             
                         </ScrollView>

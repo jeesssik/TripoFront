@@ -22,7 +22,7 @@ function HomeScreen({ navigation }) {
 function PantallaLogin({navigation}) {
   return (
    
-     <Login onPress={() => navigation.navigate('Login')} onPress1={() => navigation.navigate('Home')}/>
+     <Login onPress={() => navigation.navigate('Login')} onPress1={() => navigation.navigate('Registro')}/>
   );
 }
 
