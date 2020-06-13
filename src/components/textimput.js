@@ -12,9 +12,11 @@ export default class TxtImput extends React.Component {
         <View style={styles.container}>
             <TextInput  style={styles.estilo}
                 label={this.props.defecto}
-                value={this.state.text}
                 underlineColor="darkblue"
-                onChangeText={text => this.setState({ text })}
+                onChangeText={this.props.valor}
+                onBlur={this.props.comp}
+                secureTextEntry={this.props.seguridad}
+            
             />
         </View>
     );

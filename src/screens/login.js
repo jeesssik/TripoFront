@@ -1,15 +1,57 @@
 
 import React from 'react'
 import {  View,StyleSheet,ImageBackground,  } from 'react-native'
-import { Button,Text } from 'react-native-paper';
+import { Button,Text,TextInput } from 'react-native-paper';
 
 import Titulo from '../components/titulo';
 import Social from '../components/socialIcon'
 import TxtImput from '../components/textimput'
 
 
-function Login(props){
+class Login extends React.Component{
  
+  constructor(){
+    super();
+    this.state={
+      usuario:'',
+      password:'',
+      userError:'',
+      passwordError:''
+    }
+  }
+
+  submit(){
+
+
+
+
+    if(this.state.password=="" || this.state.usuario==""){
+      alert("Campos vacios")
+    }
+    
+  }
+  
+
+ 
+
+  userValidator(){
+    if(this.state.usuario==""){
+      this.setState({userError:"El usuario no puede estar vacio"})
+    }else{
+      this.setState({userError:""})
+    }
+   
+  }
+
+  passworValidator(){
+    if(this.state.password==""){
+      this.setState({passwordError:"El password no puede estar vacio"})
+    }
+    else{
+      this.setState({passwordError:""})
+    }
+  }
+  render(){
     return(
         
 
@@ -25,18 +67,26 @@ function Login(props){
               <View style={styles.container2}>
                 <Titulo content='Tripo' />
               
-                <TxtImput defecto='Usuario' />
-                <TxtImput defecto='Contrseña' />
+                
+                
+                <TxtImput defecto='usuario'  valor={(text)=>{this.setState({usuario:text})}}  comp={()=> this.userValidator()}/>
+                <Text style={{color:'red', marginLeft:40}}>{this.state.userError}</Text>
+
+               
+                <TxtImput defecto='Contrseña' seguridad={true} valor={(text)=>{this.setState({password:text})}}  comp={()=> this.passworValidator()}/>
+                <Text style={{color:'red', marginLeft:40, fontSize:15}}>{this.state.passwordError}</Text>
+
+
                 <Text                  
                   style={styles.registerTextStyle}
-                  onPress={props.onPress1}>
+                  onPress={this.props.onPress1}>
                   ¿No tenés cuenta? Registrate
                 </Text>
                   
               
                 <View style={styles.inputs}>
-                  
-                  <Button mode="text" onPress={props.onPress} >
+               
+                  <Button mode="text" onPress={()=>{this.submit()}}>
                   <Text style={{fontSize:17, color:'darkblue'}}>Inciar Sesión</Text>
                     </Button>
                     
@@ -58,8 +108,8 @@ function Login(props){
           </ImageBackground>       
         </View>
     )
+  }
 }
-
 const styles = StyleSheet.create({
   
     container: {
