@@ -8,9 +8,8 @@ import Home from "./src/screens/home"
 import Login from "./src/screens/login"
 import Registro from "./src/screens/registro"
 import Tabs from "./src/navigation/BottomTabNavigator"
-import IndvPost from './src/screens/indvPost'
 import TyC from './src/screens/TyC'
-import Perfil from './src/screens/Perfil'
+
 
 
 function HomeScreen({ navigation }) {
@@ -56,26 +55,7 @@ function MainScr({navigation}) {
   );
 }
 
-function PostIndv({navigation}) {
-  return (
-   
-    <View style={styles.container}>
-        <View >
-        <IndvPost  />
-        </View>    
-    </View> 
-  );
-}
 
-
-
-function PerfilU({navigation}){
-  return(
-                                       
-      <Perfil />
-
-  );
-}
 
 
 
@@ -84,14 +64,14 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false,}}>
+      <Stack.Navigator initialRouteName="Main" screenOptions={{headerShown: false,}}>
         <Stack.Screen name="Home" component={HomeScreen}  />
         <Stack.Screen name="Login" component={PantallaLogin} />
         <Stack.Screen name="Registro" component={PantallaRegistro} />
         <Stack.Screen name="TyC" component={TyCon} />
         <Stack.Screen name="Main" component={MainScr} />
-        <Stack.Screen name="PostIndv" component={PostIndv} />
-        <Stack.Screen name="PerfilUser" component={PerfilU} />
+       
+     
 
 
       </Stack.Navigator>

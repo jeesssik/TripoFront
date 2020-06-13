@@ -2,6 +2,7 @@ import * as React from 'react';
 import { BottomNavigation, Text } from 'react-native-paper';
 
 import Publicaciones from '../screens/Publicaciones';
+import Perfil from '../screens/Perfil';
 
 //const Publicaciones = () => <Text>Music</Text>;
 
