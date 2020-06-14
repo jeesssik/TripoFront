@@ -23,34 +23,23 @@ class Login extends React.Component{
   submit(){
 
 
+    if(this.state.usuario=="" || this.state.usuario==undefined ){
+      this.setState({userError:"El usuario no puede estar vacio" })
+    }else{
+      this.setState({userError:""})
+    }
 
-
-    if(this.state.password=="" || this.state.usuario==""){
-      alert("Campos vacios")
+    if(this.state.password=="" || this.state.password==undefined){
+      this.setState({passwordError:"El password no puede estar vacio"})
+    }
+    else{
+      this.setState({passwordError:""})
     }
     
   }
   
 
  
-
-  userValidator(){
-    if(this.state.usuario==""){
-      this.setState({userError:"El usuario no puede estar vacio"})
-    }else{
-      this.setState({userError:""})
-    }
-   
-  }
-
-  passworValidator(){
-    if(this.state.password==""){
-      this.setState({passwordError:"El password no puede estar vacio"})
-    }
-    else{
-      this.setState({passwordError:""})
-    }
-  }
   render(){
     return(
         
@@ -69,11 +58,11 @@ class Login extends React.Component{
               
                 
                 
-                <TxtImput defecto='usuario'  valor={(text)=>{this.setState({usuario:text})}}  comp={()=> this.userValidator()}/>
+                <TxtImput defecto='usuario'  valor={(text)=>{this.setState({usuario:text})}} />
                 <Text style={{color:'red', marginLeft:40}}>{this.state.userError}</Text>
 
                
-                <TxtImput defecto='Contrseña' seguridad={true} valor={(text)=>{this.setState({password:text})}}  comp={()=> this.passworValidator()}/>
+                <TxtImput defecto='Contrseña' seguridad={true} valor={(text)=>{this.setState({password:text})}}/>
                 <Text style={{color:'red', marginLeft:40, fontSize:15}}>{this.state.passwordError}</Text>
 
 

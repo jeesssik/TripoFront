@@ -16,8 +16,9 @@ export default class TxtImput extends React.Component {
                 onChangeText={this.props.valor}
                 onBlur={this.props.comp}
                 secureTextEntry={this.props.seguridad}
-            
+                maxLengt={this.props.largoMax}
             />
+      
         </View>
     );
   }
