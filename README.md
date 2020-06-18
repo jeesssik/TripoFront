@@ -16,6 +16,8 @@ npm install @react-navigation/native
 
 
 
+yarn add @react-native-community/async-storage
+
 
 
 

@@ -35,10 +35,11 @@ class Login extends React.Component{
     else{
       this.setState({passwordError:""})
     }
+    console.log("usuario: "+ this.state.usuario + "contra: "+this.state.password )
     
   }
   
-
+  
  
   render(){
     return(
