@@ -6,6 +6,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Tabs from "./src/navigation/BottomTabNavigator"
 import Login from "./src/screens/login"
+import Headder from "./src/components/mainheader"
+
 
 // Contexto, una forma de pasar datos que pueden considerarse Globales 
 //a un árbol de componentes sin la necesidad de utilizar Redux.
@@ -30,9 +32,9 @@ function HomeScreen() {
 
     
     <View style={styles.container}>
-      <View >
+      <View style={StyleSheet.container} >
+            <Headder />
             
-            <Button title="Sign out" onPress={signOut}/>
           </View>
       
       <Tabs></Tabs>
@@ -69,6 +71,15 @@ function SignInScreen() {
 }
 
 const Stack = createStackNavigator();
+
+//Logica de restauracion del token
+
+/*
+isLoading: se setea a true cuando se trata de chequear si hay un token ya almacenado en el asyncStorage
+isSignOut: se setea a true cuando el usuario cierre sesion
+userToken: es el token del usuario, si no es nulo (null) se asume que el usuario está logueado, sino NO.
+
+*/
 
 export default function App({ navigation }) {
   const [state, dispatch] = React.useReducer(
@@ -113,17 +124,17 @@ envíe más credenciales de inicio de sesión en cada petición HTTP.  En lugar 
 debe enviar el token codificado en cada petición HTTP.*/
 
   React.useEffect(() => {
-    // Fetch the token from storage then navigate to our appropriate place
+    // Toma el token almacenado en el  storage
     const bootstrapAsync = async () => {
       let userToken;
 
       try {
         userToken = await AsyncStorage.getItem('userToken');
       } catch (e) {
-        // Restoring token failed
+        // en caso de que el restoring del token falle
       }
 
-      // After restoring token, we may need to validate it in production apps
+      // Despues de obtener el token, habria que validarlo 
 
       // This will switch to the App screen or Auth screen and this loading
       // screen will be unmounted and thrown away.
@@ -136,19 +147,17 @@ debe enviar el token codificado en cada petición HTTP.*/
   const authContext = React.useMemo(
     () => ({
       signIn: async data => {
-        // In a production app, we need to send some data (usually username, password) to server and get a token
-        // We will also need to handle errors if sign in failed
-        // After getting token, we need to persist the token using `AsyncStorage`
-        // In the example, we'll use a dummy token
+        //En la app de produccion, se necesita mandar el usuario y contraseña al servidor para obtener el token
+        // tambien se necesita manejar errores en caso de que el inicio de sesion falle
+        // despues de obtener el token se necesita persistirlo usando `AsyncStorage`
+        // De momento el token está harcodeado para que funcione el flow de autenticacion
 
         dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
       },
       signOut: () => dispatch({ type: 'SIGN_OUT' }),
       signUp: async data => {
-        // In a production app, we need to send user data to server and get a token
-        // We will also need to handle errors if sign up failed
-        // After getting token, we need to persist the token using `AsyncStorage`
-        // In the example, we'll use a dummy token
+        
+        //pasa lo mismo que con el signIn
 
         dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
       },
@@ -196,6 +205,7 @@ debe enviar el token codificado en cada petición HTTP.*/
 const styles = StyleSheet.create({
   
   container: {
+    //paddingTop:26,
     flex: 1,
     backgroundColor:'#dfe1e6',
     justifyContent: 'center',

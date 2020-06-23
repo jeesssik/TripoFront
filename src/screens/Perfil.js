@@ -6,6 +6,10 @@ import {  View,StyleSheet,SafeAreaView, ScrollView,Text, Image  } from 'react-na
 
 
 function Perfil(props){
+
+    // usar axios   
+    let post = 0;
+    
     return(
         <SafeAreaView style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={false}>
