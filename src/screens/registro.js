@@ -14,7 +14,7 @@ class Registro extends React.Component{
       super();
       this.state={
         usuario:'',
-        password:'',
+        password:'', password2:'',
         userError:'',
         passwordError:'',
         email :'',
@@ -63,10 +63,22 @@ class Registro extends React.Component{
 
       if(this.state.password==undefined || this.state.password==""){
         this.setState({passwordError:"El password no puede estar vacio"})
-      }
-      else{
+      } else{
         this.setState({passwordError:""})
+        this.setState({passwordError2:""})
       }
+
+      if(this.state.password2==undefined || this.state.password2==""){
+        this.setState({passwordError2:"La confirmación de password no puede estar vacia"})
+      } else if(this.state.password!=this.state.password2){
+        this.setState({passwordError:"Los passwords tienen que ser iguales"})
+        this.setState({passwordError2:"Los passwords tienen que ser iguales"})
+      } else{
+        this.setState({passwordError:""})
+        this.setState({passwordError2:""})
+      }
+     
+     
 
       if(this.state.email==undefined || this.state.email==""){
         this.setState({emailError:"El email no puede estar vacio"})
@@ -110,6 +122,8 @@ class Registro extends React.Component{
                             <Text style={{color:'darkred', marginLeft:40}}>{this.state.userError}</Text>
                             <TxtImput defecto='Contraseña' valor={(text)=>{this.setState({password:text})}} seguridad={true}/>
                             <Text style={{color:'darkred', marginLeft:40}}>{this.state.passwordError}</Text>
+                            <TxtImput defecto='Contraseña' valor={(text)=>{this.setState({password2:text})}} seguridad={true}/>
+                            <Text style={{color:'darkred', marginLeft:40}}>{this.state.passwordError2}</Text>
                             <TxtImput defecto='e-mail' valor={(text)=>{this.setState({email:text})}}/>
                             <Text style={{color:'darkred', marginLeft:40}}>{this.state.emailError}</Text>
                         

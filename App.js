@@ -16,7 +16,7 @@ const AuthContext = React.createContext(); // creando el contexto
 function SplashScreen() {
   return (
     <View>
-      <Text>Loading...</Text>
+      <Text>Cargando...</Text>
     </View>
   );
 }
