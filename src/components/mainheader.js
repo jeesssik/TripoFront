@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Appbar } from 'react-native-paper';
+import {StyleSheet} from 'react-native';
+import { Appbar,Text } from 'react-native-paper';
 
 
 export default class Headder extends React.Component {
@@ -13,9 +14,24 @@ export default class Headder extends React.Component {
         <Appbar.Content
           title="Tripo"
         />
+        <Text style={styles.salida} onPress={this.props.alpresionar}> Cerrar Sesión</Text>
+      
         
-        <Appbar.Action icon="dots-vertical" onPress={this._handleMore} />
       </Appbar.Header>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  
+  salida: {
+    fontSize:12,
+        color: "white",
+        textTransform:'uppercase',
+        fontWeight: '600',
+        paddingRight:12,
+  },
+   
+  
+});
+

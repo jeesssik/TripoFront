@@ -74,7 +74,7 @@ export default class Modale extends Component {
         <View style={styles.container}>
           
           <Button
-            title="Show Modal - Swipeable Modal Animation"
+            icon="dots-vertical"
             onPress={() => {
               this.setState({
                 swipeableModal: true,

@@ -62,7 +62,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop:'5%',
+    //marginTop:'5%',
     flex: 1,
     backgroundColor: 'white',
   },

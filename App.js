@@ -32,8 +32,8 @@ function HomeScreen() {
 
     
     <View style={styles.container}>
-      <View style={StyleSheet.container} >
-            <Headder />
+      <View style={styles.container1} >
+            <Headder alpresionar={signOut}/>
             
           </View>
       
@@ -155,12 +155,13 @@ debe enviar el token codificado en cada petición HTTP.*/
         dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
       },
       signOut: () => dispatch({ type: 'SIGN_OUT' }),
-      signUp: async data => {
+      
+      /*signUp: async data => {
         
         //pasa lo mismo que con el signIn
 
         dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
-      },
+      },*/
     }),
     []
   );
@@ -206,11 +207,16 @@ const styles = StyleSheet.create({
   
   container: {
     //paddingTop:26,
-    flex: 1,
-    backgroundColor:'#dfe1e6',
-    justifyContent: 'center',
+    flex:1,
+    //backgroundColor:'#dfe1e6',
+    
+   },
+   container1: {
+    //paddingTop:26,
+    flex: 0.1,
    }
   
 });
+
 
 
