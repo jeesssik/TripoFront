@@ -123,21 +123,6 @@ const styles = StyleSheet.create({
     justifyContent:"center",
 
   },
-  social:{ 
-    marginTop: 30, 
-    marginLeft:70, 
-    marginRight:70,
-    marginBottom:30, 
-    backgroundColor:'rgba(18, 44, 44, 0.1)', 
-    paddingLeft:20, 
-    paddingRight:20, 
-    paddingBottom:20,
-    borderRadius:8,
-  },
-  Tsocial:{ 
-    paddingBottom:20,
-    alignSelf : "center" 
-  },
   inputs:{
     marginTop:60, 
     flexDirection:'row',
