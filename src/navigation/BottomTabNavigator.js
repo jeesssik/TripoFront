@@ -1,22 +1,24 @@
 import * as React from 'react';
-import { BottomNavigation, Text } from 'react-native-paper';
+import { BottomNavigation, Text, Button } from 'react-native-paper';
 
 import Publicaciones from '../screens/Publicaciones';
+import Perfil from '../screens/Perfil';
+import { View } from 'react-native';
 
 //const Publicaciones = () => <Text>Music</Text>;
 
 const AlbumsRoute = () => <Text>Albums</Text>;
 
-const RecentsRoute = () => <Text>Recents</Text>;
+const RecentsRoute = () =>  <Text>Albums</Text>;
 
 export default class MyComponent extends React.Component {
   state = {
     index: 0,
     routes: [
-      { key: 'Inicio', title: 'Inicio', icon: 'home', color: 'blue' },
-      { key: 'Buscar', title: 'Buscar', icon: 'magnify', color: '#99C337' },
-      { key: 'Publicar', title: 'Publicar', icon: 'plus-circle', color: 'gray' },
-      { key: 'Perfil', title: 'Perfil', icon: 'account', color: 'green'},
+      { key: 'Inicio', title: 'Inicio', icon: 'home', color: '#121075' },
+      { key: 'Buscar', title: 'Buscar', icon: 'magnify', color: '#3230a1' },
+      { key: 'Publicar', title: 'Publicar', icon: 'plus-circle', color: '#5351c2' },
+      { key: 'Perfil', title: 'Perfil', icon: 'account', color: '#6966ff'},
     ],
   };
 
@@ -26,17 +28,19 @@ export default class MyComponent extends React.Component {
     Inicio: Publicaciones,
     Buscar: RecentsRoute,
     Publicar: AlbumsRoute,
-    Perfil: RecentsRoute,
+    Perfil: Perfil,
   });
 
   render() {
-    return (
+    return ( 
+  
       <BottomNavigation
         navigationState={this.state}
         onIndexChange={this._handleIndexChange}
         renderScene={this._renderScene}
         shifting={true}//expande al estar parado en un tab
       />
+      
     );
   }
 }

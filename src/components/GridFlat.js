@@ -50,7 +50,7 @@ export default function App() {
         data={DATA}
         renderItem={({ item }) => (
             <View style={styles.item}>
-                <Card titulo={item.title} actual={item.actual}/>
+                <Card titulo={item.title} actual={item.actual}  />
             </View>
         )}
         keyExtractor={item => item.id}
@@ -62,7 +62,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop:'5%',
+    //marginTop:'5%',
     flex: 1,
     backgroundColor: 'white',
   },
