@@ -7,7 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Tabs from "./src/navigation/BottomTabNavigator"
 import Login from "./src/screens/login"
 import Headder from "./src/components/mainheader"
-
+import NavegaLog from './src/screens/navegacionLog'
 
 // Contexto, una forma de pasar datos que pueden considerarse Globales 
 //a un árbol de componentes sin la necesidad de utilizar Redux.
@@ -44,13 +44,13 @@ function HomeScreen() {
 }
 
 function SignInScreen() {
-  const [username, setUsername] = React.useState('');
+  /*const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  const { signIn } = React.useContext(AuthContext);
+  const { signIn } = React.useContext(AuthContext);*/
 
   return (
-    <View>
+   /* <View>
       <TextInput
         placeholder="Username"
         value={username}
@@ -63,9 +63,10 @@ function SignInScreen() {
         secureTextEntry
       />
       <Button title="Sign in" onPress={() => signIn({ username, password })} />
-    </View>
+    </View>*/
 
-    /*<Login username={this.state.usuario} />*/
+    
+    <NavegaLog   />
   
   );
 }

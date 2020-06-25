@@ -22,70 +22,90 @@ class Registro extends React.Component{
     }
   
     submit(){
+      let todoOk;
   
       if(this.state.nombre==undefined || this.state.nombre==""){
         this.setState({nombreError:"El nombre no puede estar vacio"})
+        todoOk=false;
       }else{
         this.setState({nombreError:""})
+        todoOk=true;
       }
 
 
 
       if(this.state.apellido==undefined || this.state.apellido==""){
         this.setState({apellidoError:"El apelldo no puede estar vacio"})
+        todoOk=false;
       }else{
         this.setState({apellidoError:""})
+        todoOk=true;
       }
 
 
       if(this.state.dni==undefined || this.state.dni==""){
         this.setState({dniError:"El dni no puede estar vacio"})
+        todoOk=false;
       }else{
         this.setState({dniError:""})
-        TxtImput.estado='true'
+        todoOk=true;
       }
 
       if(this.state.fnac==undefined || this.state.fnac==""){
         this.setState({fnacError:"La fecha de nacimiento no puede estar vacio"})
+        todoOk=false;
       }
       else{
         this.setState({fnacError:""})
+        todoOk=true;
       }
 
 
 
       if(this.state.usuario==undefined ||this.state.usuario==""){
         this.setState({userError:"El usuario no puede estar vacio"})
+        todoOk=false;
       }else{
         this.setState({userError:""})
+        todoOk=true;
       }
 
 
       if(this.state.password==undefined || this.state.password==""){
         this.setState({passwordError:"El password no puede estar vacio"})
+        todoOk=false;
       } else{
         this.setState({passwordError:""})
         this.setState({passwordError2:""})
+        todoOk=true;
       }
 
       if(this.state.password2==undefined || this.state.password2==""){
         this.setState({passwordError2:"La confirmación de password no puede estar vacia"})
+        todoOk=false;
       } else if(this.state.password!=this.state.password2){
         this.setState({passwordError:"Los passwords tienen que ser iguales"})
         this.setState({passwordError2:"Los passwords tienen que ser iguales"})
+        todoOk=false;
       } else{
         this.setState({passwordError:""})
         this.setState({passwordError2:""})
+        todoOk=true;
       }
      
      
 
       if(this.state.email==undefined || this.state.email==""){
         this.setState({emailError:"El email no puede estar vacio"})
+        todoOk=false;
     }else{
         this.setState({emailError:""})
+        todoOk=true;
       }
 
+    if(todoOk==true){
+      () => {this.props.vamosAlLogin}
+    }
 
     }
     

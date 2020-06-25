@@ -13,10 +13,7 @@ function Perfil(props){
     return(
         <SafeAreaView style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={false}>
-          <View style={styles.titleBar}>
-            <Ionicons name="ios-arrow-back" size={24} color="#AEB5BC"></Ionicons>
-            <Ionicons name="md-more" size={24} color="#AEB5BC"></Ionicons>
-          </View>
+          
 
             
           <View style={{ alignSelf: "center"}}>

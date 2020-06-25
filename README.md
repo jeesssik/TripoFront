@@ -15,6 +15,10 @@ npm install @react-navigation/native
 
 
 
+//validacion de formularios
+yarn add formik@1.4.0
+yarn add yup@0.26.6
+
 
 yarn add @react-native-community/async-storage
 

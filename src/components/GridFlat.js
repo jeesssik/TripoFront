@@ -50,7 +50,7 @@ export default function App() {
         data={DATA}
         renderItem={({ item }) => (
             <View style={styles.item}>
-                <Card titulo={item.title} actual={item.actual} />
+                <Card titulo={item.title} actual={item.actual}  />
             </View>
         )}
         keyExtractor={item => item.id}
