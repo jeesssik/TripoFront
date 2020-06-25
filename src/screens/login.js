@@ -23,8 +23,10 @@ const validationSchema = yup.object().shape({
     .max(10, 'We prefer insecure system, try a shorter password.'),
 });
 
-export default function Login(){
-  return(
+export default class Login extends React.Component {
+  
+  render(){
+    return(
   <View style={styles.container}>
     
     <ImageBackground 
@@ -35,7 +37,8 @@ export default function Login(){
         }}>
         <View style={styles.container2}>
           <Titulo content='Tripo' /> 
-          <SafeAreaView style={{ marginTop: 90 }}>
+          <Text style={{ marginLeft: 30,fontSize:24,color:"#2a3078" }}>Login</Text>
+          <SafeAreaView style={{ marginTop: 40 }}>
             <Formik
               initialValues={{ email: '', password: '' }}
               onSubmit={(values, actions) => {
@@ -52,9 +55,13 @@ export default function Login(){
                     <Text style={{ marginBottom: 3 }}>Email</Text>
                     <TextInput
                       placeholder="johndoe@example.com"
+                      style={{
+                        backgroundColor:"rgba(192,192,192,0.3)",
+                        marginBottom: 3,
+                      }}
                       onChangeText={formikProps.handleChange('email')}
                       onBlur={formikProps.handleBlur('email')}
-                      autoFocus
+                     // autoFocus
                     />
                     <Text style={{ color: 'darkred' }}>
                       {formikProps.touched.email && formikProps.errors.email}
@@ -65,6 +72,10 @@ export default function Login(){
                     <Text style={{ marginBottom: 3 }}>Password</Text>
                     <TextInput
                       placeholder="password"
+                      style={{
+                        backgroundColor:"rgba(192,192,192,0.3)",
+                        marginBottom: 3,
+                      }}
                       onChangeText={formikProps.handleChange('password')}
                       onBlur={formikProps.handleBlur('password')}
                       secureTextEntry
@@ -72,6 +83,13 @@ export default function Login(){
                     <Text style={{ color: 'darkred' }}>
                       {formikProps.touched.password && formikProps.errors.password}
                     </Text>
+                    <Text                  
+                      style={styles.registerTextStyle}
+                      onPress={this.props.irme}>
+                      ¿No tenés cuenta? Registrate
+                    </Text>
+                  
+                    
                   </View>
 
                   {formikProps.isSubmitting ? (
@@ -84,12 +102,13 @@ export default function Login(){
                 </React.Fragment>
               )}
             </Formik>
+
           </SafeAreaView>
         </View>
     </ImageBackground>
   </View>
 );
-
+ }
  }
 
 const styles = StyleSheet.create({
@@ -120,12 +139,12 @@ const styles = StyleSheet.create({
     alignSelf : "center" 
   },
   inputs:{
-    marginTop:40, 
+    marginTop:60, 
     flexDirection:'row',
     justifyContent: 'center'
   },
   registerTextStyle: {
-    marginRight:40,
+    marginRight:10,
     color: '#334191',
     textAlign: 'right',
     fontWeight: 'bold',
