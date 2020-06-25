@@ -15,10 +15,10 @@ export default class MyComponent extends React.Component {
   state = {
     index: 0,
     routes: [
-      { key: 'Inicio', title: 'Inicio', icon: 'home', color: 'blue' },
-      { key: 'Buscar', title: 'Buscar', icon: 'magnify', color: '#99C337' },
-      { key: 'Publicar', title: 'Publicar', icon: 'plus-circle', color: 'gray' },
-      { key: 'Perfil', title: 'Perfil', icon: 'account', color: 'green'},
+      { key: 'Inicio', title: 'Inicio', icon: 'home', color: '#121075' },
+      { key: 'Buscar', title: 'Buscar', icon: 'magnify', color: '#3230a1' },
+      { key: 'Publicar', title: 'Publicar', icon: 'plus-circle', color: '#5351c2' },
+      { key: 'Perfil', title: 'Perfil', icon: 'account', color: '#6966ff'},
     ],
   };
 

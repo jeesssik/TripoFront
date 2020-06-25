@@ -5,8 +5,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 import Tabs from "./src/navigation/BottomTabNavigator"
-import Login from "./src/screens/login"
+//import Login from "./src/screens/login"
 import Headder from "./src/components/mainheader"
+
+import Maiin from "./src/screens/main"
 import NavegaLog from './src/screens/navegacionLog'
 
 // Contexto, una forma de pasar datos que pueden considerarse Globales 
@@ -25,32 +27,26 @@ function HomeScreen() {
   const { signOut } = React.useContext(AuthContext);
 
   return (
-   /* <View>
-      <Text>Signed in!</Text>
-      <Button title="Sign out" onPress={signOut} />
-    </View>*/
-
-    
+       /*
     <View style={styles.container}>
       <View style={styles.container1} >
             <Headder alpresionar={signOut}/>
-            
           </View>
-      
       <Tabs></Tabs>
     </View>
-
+*/
+<Maiin salida={signOut}/>
   );
 }
 
 function SignInScreen() {
-  /*const [username, setUsername] = React.useState('');
+  const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  const { signIn } = React.useContext(AuthContext);*/
+  const { signIn } = React.useContext(AuthContext);
 
   return (
-   /* <View>
+    <View>
       <TextInput
         placeholder="Username"
         value={username}
@@ -63,10 +59,10 @@ function SignInScreen() {
         secureTextEntry
       />
       <Button title="Sign in" onPress={() => signIn({ username, password })} />
-    </View>*/
+    </View>
 
     
-    <NavegaLog   />
+    //<NavegaLog   />
   
   );
 }
@@ -157,12 +153,12 @@ debe enviar el token codificado en cada petición HTTP.*/
       },
       signOut: () => dispatch({ type: 'SIGN_OUT' }),
       
-      /*signUp: async data => {
+      signUp: async data => {
         
         //pasa lo mismo que con el signIn
 
         dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
-      },*/
+      },
     }),
     []
   );
