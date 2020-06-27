@@ -3,6 +3,8 @@ import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
 import Constants from 'expo-constants';
 import Card from './Card';
 
+
+
 const DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -43,14 +45,14 @@ const DATA = [
 
 ];
 
-export default function App() {
+export default function App(props) {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
         renderItem={({ item }) => (
             <View style={styles.item}>
-                <Card titulo={item.title} actual={item.actual}  />
+                <Card titulo={item.title} actual={item.actual} onPress={props.aPost} />
             </View>
         )}
         keyExtractor={item => item.id}

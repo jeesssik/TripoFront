@@ -6,7 +6,7 @@ import Star from './Star';
 
 export default function Contenedor(props){
   return (
-    <Card style={{flex:1}} >
+    <Card style={{flex:1}} onPress={props.onPress} >
       <Card.Content style={{width:'100%'}}>
         <View style={{width:'100%', height:'50%'}}>
           <Title>ivan</Title>

@@ -4,9 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 
-import Tabs from "./src/navigation/BottomTabNavigator"
+//import Tabs from "./src/navigation/BottomTabNavigator"
 //import Login from "./src/screens/login"
-import Headder from "./src/components/mainheader"
+//import Headder from "./src/components/mainheader"
 
 import Maiin from "./src/screens/main"
 import NavegaLog from './src/screens/navegacionLog'
@@ -35,17 +35,21 @@ function HomeScreen() {
       <Tabs></Tabs>
     </View>
 */
-<Maiin salida={signOut}/>
+    <Maiin salida={signOut}/>
+
+
   );
 }
 
 function SignInScreen() {
+ 
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
   const { signIn } = React.useContext(AuthContext);
 
   return (
+    
     <View>
       <TextInput
         placeholder="Username"
