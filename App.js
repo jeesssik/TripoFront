@@ -9,7 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 //import Headder from "./src/components/mainheader"
 
 import Maiin from "./src/screens/main"
-import NavegaLog from './src/screens/navegacionLog'
+import NavegaLog from './src/navigation/navegacionLog'
 
 // Contexto, una forma de pasar datos que pueden considerarse Globales 
 //a un árbol de componentes sin la necesidad de utilizar Redux.
