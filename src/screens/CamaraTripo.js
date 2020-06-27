@@ -5,6 +5,7 @@ import {FontAwesome} from '@expo/vector-icons'
 import { Button } from 'react-native-elements';
 import CreacionPost from '../components/CreacionPost'
 import * as ImagePicker from 'expo-image-picker'; // acceso a galeria
+import { white } from 'ansi-colors';
 
 
         
@@ -90,15 +91,16 @@ export default function CameraPage (props) {
     
                 <TouchableOpacity style={{
                     position: 'absolute',
-                    bottom: 100,
+                    bottom: 150,
                     left:240,
+                    
 
                 }} onPress={pickImage}>
-                    <Text>Galeria</Text>
+                    <Text style={{color: 'white', fontSize:20}}>Galeria</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{
                     position: 'absolute',
-                    bottom: 100,
+                    bottom: 150,
                     left:25,
 
                 }} onPress={()=>{
@@ -111,7 +113,7 @@ export default function CameraPage (props) {
                 }}>
 
             <FontAwesome
-            name='camera'
+            name='refresh'
             size ={23}
             color = '#FFF'
             
@@ -129,7 +131,8 @@ export default function CameraPage (props) {
                 
                 justifyContent:'center',
                 alignItems: 'center',
-                backgroundColor:'gray',
+                backgroundColor:'white',
+                borderStartColor:'gray',
                 margin:120,
                 marginBottom:30,
                 borderRadius:60,

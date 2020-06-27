@@ -4,7 +4,7 @@ import { BottomNavigation, Text, Button } from 'react-native-paper';
 import Publicaciones from '../screens/Publicaciones';
 import Perfil from '../screens/Perfil';
 import { View } from 'react-native';
-
+import CamaraTripo from '../screens/CamaraTripo'
 //const Publicaciones = () => <Text>Music</Text>;
 
 const AlbumsRoute = () => <Text>Albums</Text>;
@@ -27,7 +27,7 @@ export default class MyComponent extends React.Component {
   _renderScene = BottomNavigation.SceneMap({
     Inicio: Publicaciones,
     Buscar: RecentsRoute,
-    Publicar: AlbumsRoute,
+    Publicar: CamaraTripo,
     Perfil: Perfil,
   });
 

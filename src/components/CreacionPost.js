@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
       flex:1,
       backgroundColor:'#dfe1e6',
       justifyContent:"center",
-      top: 10
+      top: 10,
+      marginBottom:50
     },
     social:{ 
       marginTop:10, 

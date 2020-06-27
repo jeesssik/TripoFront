@@ -9,7 +9,7 @@ import Tabs from "./src/navigation/BottomTabNavigator"
 import Headder from "./src/components/mainheader"
 
 import Maiin from "./src/screens/main"
-import NavegaLog from './src/screens/navegacionLog'
+//import NavegaLog from './src/screens/navegacionLog'
 
 // Contexto, una forma de pasar datos que pueden considerarse Globales 
 //a un árbol de componentes sin la necesidad de utilizar Redux.
@@ -62,7 +62,7 @@ function SignInScreen() {
     </View>
 
     
-    //<NavegaLog   />
+   // <NavegaLog   />
   
   );
 }
