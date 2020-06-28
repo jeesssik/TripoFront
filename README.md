@@ -28,5 +28,7 @@ expo install expo-image-picker
 
 EXPO CAMERA
 expo install expo-camera
+MAPS
+expo install react-native-maps
 
 live search?? https://www.npmjs.com/package/react-native-search-filter
