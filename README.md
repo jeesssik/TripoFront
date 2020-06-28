@@ -23,8 +23,10 @@ yarn add yup@0.26.6
 yarn add @react-native-community/async-storage
 
 
+IMAGE PICKER DE EXPO
+expo install expo-image-picker
 
-
-
+EXPO CAMERA
+expo install expo-camera
 
 live search?? https://www.npmjs.com/package/react-native-search-filter
