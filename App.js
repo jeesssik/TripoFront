@@ -42,14 +42,14 @@ function HomeScreen() {
 }
 
 function SignInScreen() {
- 
+ /*
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
   const { signIn } = React.useContext(AuthContext);
-
+*/
   return (
-    
+  /*  
     <View>
       <TextInput
         placeholder="Username"
@@ -64,9 +64,9 @@ function SignInScreen() {
       />
       <Button title="Sign in" onPress={() => signIn({ username, password })} />
     </View>
-
+*/
     
-   // <NavegaLog   />
+    <NavegaLog   />
   
   );
 }
