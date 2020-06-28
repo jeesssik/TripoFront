@@ -66,7 +66,7 @@ function SignInScreen() {
     </View>
 
     
-    //<NavegaLog   />
+   // <NavegaLog   />
   
   );
 }
