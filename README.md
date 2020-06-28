@@ -27,8 +27,4 @@ yarn add @react-native-community/async-storage
 
 
 
-
-
-
-
-<Modale titulo="Eliminar Publicación" linea1='¿Está seguro que desea elimiar la publicación?' botonI="Cancelar" botonD="Eliminar" />
+live search?? https://www.npmjs.com/package/react-native-search-filter
