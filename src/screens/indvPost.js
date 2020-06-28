@@ -1,12 +1,15 @@
 
 import React from 'react';
 import 'react-native-gesture-handler';
-import {  View,StyleSheet,SafeAreaView, ScrollView } from 'react-native'
+import {  View,StyleSheet,SafeAreaView, ScrollView, TextInput, Button } from 'react-native'
+import { Formik } from 'formik';
 import Titulo from '../components/titulo';
 import Icono from '../components/icono'
 import { Text } from 'react-native-paper';
 import { Ionicons } from '@expo/vector-icons';
 import CarouselStart from '../components/Carousel';
+import Textimput from '../components/textimput'
+
 
 function IndvPost(props){
     return(
@@ -37,7 +40,28 @@ function IndvPost(props){
                     </View>
                     <Text> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</Text>
                
+                    <View style={{margin:10, backgroundColor:'gray'}}>
+                    <Text>Comentarios</Text>
+                    <Formik
+                        initialValues={{ comentario: '' }}
+                        onSubmit={values => console.log(values)}>
+                        {({ handleChange, handleBlur, handleSubmit, values }) => (
+                        <View>
+                            <TextInput
+                            onChangeText={handleChange('comentario')}
+                            onBlur={handleBlur('comentario')}
+                            value={values.email}
+                            style={{
+                                backgroundColor:"rgba(192,192,192,0.3)",
+                                padding: 4,
+                              }}
+                            />
+                            <Button onPress={handleSubmit} title="Comentar" />
+                        </View>
+                        )}
+                    </Formik>
                    
+                    </View>
                   
                
                 </ScrollView>
