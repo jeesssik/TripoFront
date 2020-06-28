@@ -35,8 +35,10 @@ export default class App extends React.Component {
         <MapView style={styles.mapStyle} showsUserLocation 
         initialRegion={
           {
-            latitude: -34.6131500,
-            longitude: -58.3772300
+            latitude: 31.776685,
+            longitude: 35.234491,
+            latitudeDelta: 0.04,
+            longitudeDelta: 0.05,
             
           }
         }
