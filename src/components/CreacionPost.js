@@ -1,42 +1,19 @@
-
 import React from 'react'
-import {  View,StyleSheet, ScrollView, Image} from 'react-native'
+import {  View,StyleSheet} from 'react-native'
 import Description from '../components/Description'
 
+function CreacionPost() {
+  return(
 
-    
-
-      function CreacionPost() {
-        return(
-      
-         <View  style={styles.container}>
-            
-               
-               <View style={styles.social}>
-               <Description/>
-               
-               </View>
-                  
-             
-        </View>
-      
-     
-        
-        
-    );
-        }
-
-
-        
-
-          
-
-        
-
-
+    <View  style={styles.container}>
+      <View style={styles.social}>
+        <Description/>
+      </View>
+    </View>
+  );
+} 
 
 const styles = StyleSheet.create({
-  
     container: {
       flex:1,
       backgroundColor:'#dfe1e6',

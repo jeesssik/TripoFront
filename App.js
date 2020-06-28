@@ -50,7 +50,7 @@ function SignInScreen() {
 
   return (
     
-    <View>
+   <View>
       <TextInput
         placeholder="Username"
         value={username}
@@ -66,7 +66,7 @@ function SignInScreen() {
     </View>
 
     
-   // <NavegaLog   />
+    //<NavegaLog   />
   
   );
 }
