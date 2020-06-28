@@ -8,14 +8,13 @@ import Icono from '../components/icono'
 import { Text } from 'react-native-paper';
 import { Ionicons } from '@expo/vector-icons';
 import CarouselStart from '../components/Carousel';
-import Textimput from '../components/textimput'
 
 
 function IndvPost(props){
     return(
         <View style={styles.container}>
          <SafeAreaView >
-                <ScrollView >
+                <ScrollView>
                     <View style={styles.titleBar}>
                         
                         <Ionicons name="md-more" size={24} ></Ionicons>
@@ -77,6 +76,7 @@ const styles = StyleSheet.create({
     container: {
         overflow: 'hidden',
         margin: 10,
+        flex:1,
 
     },
     detalles:{
