@@ -4,12 +4,32 @@ import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
 
 
-const id = 0;
-export default class App extends React.Component {
-    
 
-  
+export default class App extends React.Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        markers: []
+      }
+      this.handlePress =  this.handlePress.bind(this);
+    }
+    handlePress(e){
+        this.setState({
+          markers :[
+         ...this.state.markers,
+            {
+              coordinate: e.nativeEvent.coordinate
+            }
+          
+         ]
+        })
+        let coordsPubli= this.state.markers[0]
+        console.log(coordsPubli)
+    }
+
+    
     render() {
+
     return (
       <View style={styles.container}>
         <MapView style={styles.mapStyle} showsUserLocation 
@@ -20,20 +40,13 @@ export default class App extends React.Component {
             
           }
         }
-        
-        
-        
+        onPress={this.handlePress}
         >
-         <Marker
-              coordinate={{
-                latitude: -34.6131500,
-                longitude: -58.3772300
-              }}
-              title="Prueba de inicializar"
-              description="esto se setea"
-              
-              />
-        </MapView>
+          {this.state.markers.map((marker)=>{
+            return <Marker {...marker}/>
+          })}
+          </MapView>
+        
       </View>
     );
   }
