@@ -24,7 +24,4 @@ yarn add @react-native-community/async-storage
 
 
 
-
-
-
 live search?? https://www.npmjs.com/package/react-native-search-filter
