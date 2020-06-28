@@ -5,9 +5,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 
-import Login from './login'
-import Registro from './registro'
-import TyC from './TyC'
+import Login from '../screens/login'
+import Registro from '../screens/registro'
+import TyC from '../screens/TyC'
 
 
 

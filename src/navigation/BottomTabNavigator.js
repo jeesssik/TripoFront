@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { BottomNavigation, Text, Button } from 'react-native-paper';
 
-import Publicaciones from '../screens/Publicaciones';
+//import Publicaciones from '../screens/Publicaciones';
+import NavPosts from './navegecionPosteos'
 import Perfil from '../screens/Perfil';
 import { View } from 'react-native';
-
+import CamaraTripo from '../screens/CamaraTripo'
 //const Publicaciones = () => <Text>Music</Text>;
 
 const AlbumsRoute = () => <Text>Albums</Text>;
@@ -25,9 +26,10 @@ export default class MyComponent extends React.Component {
   _handleIndexChange = index => this.setState({ index });
 
   _renderScene = BottomNavigation.SceneMap({
-    Inicio: Publicaciones,
+    //Inicio: Publicaciones,
+    Inicio: NavPosts,
     Buscar: RecentsRoute,
-    Publicar: AlbumsRoute,
+    Publicar: CamaraTripo,
     Perfil: Perfil,
   });
 

@@ -23,12 +23,10 @@ yarn add yup@0.26.6
 yarn add @react-native-community/async-storage
 
 
+IMAGE PICKER DE EXPO
+expo install expo-image-picker
 
+EXPO CAMERA
+expo install expo-camera
 
-
-
-
-
-
-
-<Modale titulo="Eliminar Publicación" linea1='¿Está seguro que desea elimiar la publicación?' botonI="Cancelar" botonD="Eliminar" />
+live search?? https://www.npmjs.com/package/react-native-search-filter

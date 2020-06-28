@@ -6,7 +6,7 @@ import Star from './Star';
 
 export default function Contenedor(props){
   return (
-    <Card style={{flex:1}} >
+    <Card style={styles.tarjeta} onPress={props.onPress} >
       <Card.Content style={{width:'100%'}}>
         <View style={{width:'100%', height:'50%'}}>
           <Title>ivan</Title>
@@ -28,6 +28,12 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 10
+    //marginBottom: 10,
   },
+  tarjeta:{
+    flex:1,
+    margin:10,
+    borderRadius:20,
+},
+
 });
