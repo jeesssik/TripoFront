@@ -42,7 +42,7 @@ export default class App extends React.Component {
             
           }
         }
-        onPress={this.handlePress}
+        onPress={this.handlePress}  
         >
           {this.state.markers.map((marker)=>{
             return <Marker {...marker}/>
