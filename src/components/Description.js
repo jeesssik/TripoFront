@@ -36,7 +36,7 @@ function Description(props){
             <View  style={{alignContent: "center", marginLeft:130}}>
                 <IconAnt name='earth' style={{fontSize:40}} onPress={abrirMapa}/> 
                 </View>
-            <Modal
+            <Modal style={styles.mapStyle}
                         animationType="slide"
                         transparent={false}
                         visible={open}

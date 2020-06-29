@@ -31,14 +31,14 @@ export default class App extends React.Component {
     render() {
 
     return (
-      <View style={styles.container}>
         <MapView style={styles.mapStyle} showsUserLocation 
         initialRegion={
           {
-            latitude: 31.776685,
-            longitude: 35.234491,
+            latitude: -34.6131500,
+            longitude: -58.3772300,
             latitudeDelta: 0.04,
             longitudeDelta: 0.05,
+            
             
           }
         }
@@ -49,20 +49,15 @@ export default class App extends React.Component {
           })}
           </MapView>
         
-      </View>
+      
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+ 
   mapStyle: {
-    width: 300,
-    height: 200,
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
   },
 });
