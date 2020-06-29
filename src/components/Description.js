@@ -1,7 +1,16 @@
 import React, {useState}from 'react'
-import {  View,    StyleSheet,    Text,    Modal,    Button,    Dimensions,    ScrollView,
-    SafeAreaView,    TextInput} from 'react-native'
+import {  View,
+    StyleSheet,
+    Text,
+    Modal,
+    Button,
+    Dimensions,
+    ScrollView,
+    SafeAreaView,
+    TextInput} from 'react-native'
+//import MaterialText from '../components/material-textfieldFilled';
 import IconAnt from 'react-native-vector-icons/AntDesign' 
+//import Localizacion from '../components/Localizacion'
 import MapaTripo from '../components/MapaTripo'
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -17,9 +26,10 @@ const validationSchema = yup.object().shape({
     .required(),
     web: yup
     .string()
-    .url()
     .label('Web')
     .required()
+    .min(7, 'Seems a bit short...')
+    .max(11, 'We prefer insecure system, try a shorter password.'),
     
     
   });
@@ -128,7 +138,6 @@ function Description(props){
           </Text>
         </View>
       );
-
 //estilo de los inputs
 const StyledInput = ({ label, formikProps, formikKey, ...rest }) => {
     const inputStyles = {
@@ -154,7 +163,7 @@ const StyledInput = ({ label, formikProps, formikKey, ...rest }) => {
     );
   };
   //establece el nombre del input y toma el valor del input
-const StyledSwitch = ({ formikKey, formikProps, label, ...rest }) => (
+/*const StyledSwitch = ({ formikKey, formikProps, label, ...rest }) => (
   <FieldWrapper label={label} formikKey={formikKey} formikProps={formikProps}>
     <Switch
       value={formikProps.values[formikKey]}
@@ -164,10 +173,7 @@ const StyledSwitch = ({ formikKey, formikProps, label, ...rest }) => (
       {...rest}
     />
   </FieldWrapper>
-);
-
-
-
+);*/
 const styles = StyleSheet.create({
   
     container: {
