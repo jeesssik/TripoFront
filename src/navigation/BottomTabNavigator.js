@@ -4,6 +4,7 @@ import { BottomNavigation, Text, Button } from 'react-native-paper';
 //import Publicaciones from '../screens/Publicaciones';
 import NavPosts from './navegecionPosteos'
 import Perfil from '../screens/Perfil';
+import Creacion from '../screens/creacionPost';
 import { View } from 'react-native';
 
 //const Publicaciones = () => <Text>Music</Text>;
@@ -29,7 +30,7 @@ export default class MyComponent extends React.Component {
     //Inicio: Publicaciones,
     Inicio: NavPosts,
     Buscar: RecentsRoute,
-    Publicar: AlbumsRoute,
+    Publicar: Creacion,
     Perfil: Perfil,
   });
 
