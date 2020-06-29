@@ -76,9 +76,7 @@ export default function CameraPage (props) {
             >          
             <View style={{flex:1, backgroundColor:'transparent', flexDirection:'row'}} >
                 <TouchableOpacity style={{
-                    position: 'absolute',
-                    bottom: 150,
-                    left:240,
+                    margin:30
                     }} onPress={pickImage}>
                     <Text style={{color: 'white', fontSize:20}}>Galeria</Text>
                 </TouchableOpacity>
@@ -104,7 +102,7 @@ export default function CameraPage (props) {
             <TouchableOpacity style={{
                 justifyContent:'center',
                 alignItems: 'center',
-                backgroundColor:'white',
+                backgroundColor:'rgba(255, 255, 255, 0.3)',
                 borderStartColor:'gray',
                 margin:120,
                 marginBottom:30,
@@ -114,9 +112,8 @@ export default function CameraPage (props) {
                 onPress={takePicture}>
 
                 <FontAwesome
-                    name='circle'
+                    name='camera'
                     size ={40}
-                    color = '#FFF'
                 ></FontAwesome> 
             </TouchableOpacity>
             {
