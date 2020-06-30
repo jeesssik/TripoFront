@@ -16,7 +16,7 @@ import Titulo from '../components/titulo';
 
 
 const validationSchema = yup.object().shape({
-    
+
   nombre: yup
   .string()
   .label('Nombre')
