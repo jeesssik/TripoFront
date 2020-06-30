@@ -9,11 +9,9 @@ import {  View,
     ScrollView,
     SafeAreaView,
     TextInput,
-    ActivityIndicator} from 'react-native'
-//import MaterialText from '../components/material-textfieldFilled';
-import IconAnt from 'react-native-vector-icons/AntDesign' 
-//import Localizacion from '../components/Localizacion'
-import MapaTripo from '../components/MapaTripo'
+    ActivityIndicator} from 'react-native';
+import IconAnt from 'react-native-vector-icons/AntDesign' ;
+import MapaTripo from '../components/MapaTripo';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
@@ -53,67 +51,65 @@ function Description(props){
     let a = JSON.stringify(props.coordinate)
     setUbi(a)
     }
+    
     return (
-        
-       
-
-        <View style={styles.container}> 
-        <ScrollView>
+       <View style={styles.container}> 
+         <ScrollView>
             <SafeAreaView>
-            <View>
+                 <View>
                 <Text  style={{ marginLeft: 30,marginBottom: 30, fontSize:24,color:"#2a3078" }}>Datos de Publicación: </Text>
-            </View>
-         <Formik
-            initialValues={
-                {
-                    horario :'', telefono: '', web:''
-                }
-            }
-           
-            onSubmit={(values, actions) => {
-                alert(JSON.stringify(values));
-                setTimeout(() => {
-                  actions.setSubmitting(false);
-                }, 1000);
-              }}
-              validationSchema={validationSchema}
-            >
-                {formikProps =>(
-                    <React.Fragment>
-                    <IconAnt name='clockcircle' style={styles.icono}/>
-                    <StyledInput
-                     label="Horario"
-                     formikProps={formikProps}
-                     formikKey="horario"
-                     placeholder="9-12 "
-                   
-                   />
-                    <IconAnt name='phone' style={styles.icono}/>
-                    <StyledInput
-                     label="Teléfono"
-                     formikProps={formikProps}
-                     formikKey="telefono"
-                     placeholder="11-35456678"
-                   
-                   />
-                   <IconAnt name='tag' style={styles.icono}/>
-                    <StyledInput
-                     label="Web"
-                     formikProps={formikProps}
-                     formikKey="web"
-                     placeholder="Centro Cultural Buenos Aires"
-                   
-                   />  
+                </View>
+             <Formik
+                    initialValues={
+                        {
+                            horario :'', telefono: '', web:''
+                        }
+                    }
+                
+                    onSubmit={(values, actions) => {
+                        alert(JSON.stringify(values));
+                        setTimeout(() => {
+                        actions.setSubmitting(false);
+                        }, 1000);
+                    }}
+                    validationSchema={validationSchema}
+                    >
+                        {formikProps =>(
+                            <React.Fragment>
+                            <IconAnt name='clockcircle' style={styles.icono}/>
+                            <StyledInput
+                            label="Horario"
+                            formikProps={formikProps}
+                            formikKey="horario"
+                            placeholder="9-12 "
+                        
+                        />
+                            <IconAnt name='phone' style={styles.icono}/>
+                            <StyledInput
+                            label="Teléfono"
+                            formikProps={formikProps}
+                            formikKey="telefono"
+                            placeholder="11-35456678"
+                        
+                        />
+                        <IconAnt name='tag' style={styles.icono}/>
+                            <StyledInput
+                            label="Web"
+                            formikProps={formikProps}
+                            formikKey="web"
+                            placeholder="Centro Cultural Buenos Aires"
+                        
+                        />  
 
-                   <IconAnt name='earth' style={styles.icono}/>
-                    <StyledInput
-                     label="Ubicacion"
-                     formikProps={formikProps}
-                     formikKey="ubicacion"
-                     placeholder="seleciona un punto en el globo"
-                     value={ubi}
-                   />    
-                    
+                        <IconAnt name='earth' style={styles.icono}/>
+                            <StyledInput
+                            label="Ubicacion"
+                            formikProps={formikProps}
+                            formikKey="ubicacion"
+                            placeholder="seleciona un punto en el globo"
+                            value={ubi}
+                        />    
+                            
 
                    <View  style={{alignContent: "center", marginLeft:100}}>
                         <IconAnt name='earth' style={{fontSize:40}} onPress={abrirMapa}/> 
@@ -132,37 +128,37 @@ function Description(props){
                                    transparent={false}
                                    visible={open}
                                    >
-                                <Button title='Cancelar' style={{margin:10}} onPress={()=> setOpen(false)} />
-                               <Button title='OK' style={{margin:10}} onPress={okCoordenadas}/>
-                            <MapaTripo style={styles.mapStyle}>
+
+                            <Button title='Cancelar' style={{margin:10}} onPress={()=> setOpen(false)} />
+                            <Button title='OK' style={{margin:10}} onPress={okCoordenadas}/>
+                            <MapaTripo style={styles.mapStyle}/>
                                
-                            </MapaTripo>
                             
-                        </Modal>
+                            
+                    </Modal>
 
                         
                    </React.Fragment>
                 )}
                    
 
-            </Formik>
+                 </Formik>
             </SafeAreaView>
-            </ScrollView>
-        </View>
-    
-      )  }
+         </ScrollView>
+    </View>
+    )}
 
 
-      const FieldWrapper = ({ children, label, formikProps, formikKey }) => (
-        <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
-          <Text style={{ marginBottom: 3 }}>{label}</Text>
-          {children}
-          <Text style={{ color: 'red' }}>
-            {formikProps.touched[formikKey] && formikProps.errors[formikKey]}
-          </Text>
-        </View>
-      );
-//estilo de los inputs
+const FieldWrapper = ({ children, label, formikProps, formikKey }) => (
+    <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
+    <Text style={{ marginBottom: 3 }}>{label}</Text>
+    {children}
+    <Text style={{ color: 'red' }}>
+        {formikProps.touched[formikKey] && formikProps.errors[formikKey]}
+    </Text>
+    </View>
+);
+
 const StyledInput = ({ label, formikProps, formikKey, ...rest }) => {
     const inputStyles = {
       borderWidth: 2,
@@ -187,6 +183,7 @@ const StyledInput = ({ label, formikProps, formikKey, ...rest }) => {
       </FieldWrapper>
     );
   };
+
   //establece el nombre del input y toma el valor del input
 
   

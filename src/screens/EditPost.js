@@ -9,13 +9,14 @@ import { Ionicons } from '@expo/vector-icons';
 import CarouselStart from '../components/Carousel';
 import Description from '../components/Description'
 
+//pantalla por completar
 function IndvPost(props){
     return(
         <View style={styles.container}>
           <Image style={{width:'100%', height:300,  borderRadius: 20}}
                             source={{props}}
-                                ></Image>
-            <Description></Description>
+            ></Image>
+            <Description/>
         </View>
     )
 }

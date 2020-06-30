@@ -1,7 +1,7 @@
 
 import React, {useState, setState}from 'react';
 import MapView, {Marker}from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 
 
@@ -13,33 +13,25 @@ export default class App extends React.Component {
       this.state = {
        markers: {
           coordinate: {
-           latitude:-34.6131500 ,
-            longitude:-58.3772300,
-            },
-         
-          
+          latitude:-34.6131500 , //valores de seteo 
+          longitude:-58.3772300,
+          },
         }
        };
-      
-     // this.handlePress =  this.handlePress.bind(this);
+       // this.handlePress =  this.handlePress.bind(this);
     }
 
     handlePress(e){
-      
         this.setState({
           markers :
           {
-            coordinate: e.nativeEvent.coordinate
-           
-            
+            coordinate: e.nativeEvent.coordinate 
          }
-          
-         
         });
         
         let  coordsPubli= this.state.markers.coordinate
         console.log(coordsPubli)
-        
+        //cuando selecciono el marker me toma los valores de inicializacion (coordenadas de buenos aires) la segunda vez si me toma los del marker
     }
 
     
@@ -49,24 +41,18 @@ export default class App extends React.Component {
 
     return (
         <MapView style={styles.mapStyle} showsUserLocation 
-        initialRegion={
-          {
-            latitude: -34.6131500,
-            longitude: -58.3772300,
-            latitudeDelta: 0.04,
-            longitudeDelta: 0.05,
-            
-            
-          }
-        }
-        onPress={e => this.handlePress(e) }  
-        >
-          
+            initialRegion={
+              {
+                latitude: -34.6131500,
+                longitude: -58.3772300,
+                latitudeDelta: 0.04,
+                longitudeDelta: 0.05,
+              }
+            }
+            onPress={e => this.handlePress(e) }  //llamo funcion
+            >
            <Marker  
-             coordinate={this.state.markers.coordinate}
-                            
-            />
-     
+             coordinate={this.state.markers.coordinate}/> 
           </MapView>
         
       
