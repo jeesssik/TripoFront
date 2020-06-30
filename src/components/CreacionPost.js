@@ -10,30 +10,13 @@ import Description from '../components/Description'
         return(
       
          <View  style={styles.container}>
-            
-               
                <View style={styles.social}>
-               <Description/>
-               
-               </View>
-                  
-             
-        </View>
-      
-     
-        
-        
+                   <Description/>
+                </View>
+          </View>
+         
     );
         }
-
-
-        
-
-          
-
-        
-
-
 
 const styles = StyleSheet.create({
   

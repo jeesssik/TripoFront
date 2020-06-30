@@ -6,8 +6,8 @@ import { Button } from 'react-native-elements';
 import CreacionPost from '../components/CreacionPost'
 import * as ImagePicker from 'expo-image-picker'; // acceso a galeria
 import { white } from 'ansi-colors';
-
-
+//import Carousel from '../components/Carousel'
+import Carousel from 'react-native-looped-carousel';
         
 
 
@@ -162,14 +162,19 @@ export default function CameraPage (props) {
                                     
                     <Text>Cancelar</Text>
                 </TouchableOpacity> 
-                    <Image style={{width:'100%', height:300,  borderRadius: 20}}
-                            source={{uri:capturePhoto}}
-                                >
-                                   
-
-                    </Image>
+                     <Carousel
+                     autoplay={false}
+                     swipe={true}
+                     style={{width:'100%', height:300,  borderRadius: 20}}
+                     bullets={true}
                      
-                    <Button title='Publicar' style={{margin:10}} onPress={props.onPress}/>
+                     >
+             
+          <View style={{width:'100%', height:300,  borderRadius: 20}}>
+            <Image style={{width:'100%', height:300,  borderRadius: 20}} source={{ uri:capturePhoto }} />
+          </View>
+                     </Carousel>
+                    
                     <CreacionPost></CreacionPost>
                     </ScrollView>
         </Modal>

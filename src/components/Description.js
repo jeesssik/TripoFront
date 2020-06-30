@@ -8,7 +8,8 @@ import {  View,
     Dimensions,
     ScrollView,
     SafeAreaView,
-    TextInput} from 'react-native'
+    TextInput,
+    ActivityIndicator} from 'react-native'
 //import MaterialText from '../components/material-textfieldFilled';
 import IconAnt from 'react-native-vector-icons/AntDesign' 
 //import Localizacion from '../components/Localizacion'
@@ -16,33 +17,41 @@ import MapaTripo from '../components/MapaTripo'
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
+
 const validationSchema = yup.object().shape({
     horario: yup
     .string()
     .label('Horario')
     .required(),
     telefono: yup
-    .string()
+    .number()
     .label('Telefono')
     .required(),
     web: yup
     .string()
     .label('Web')
+    .required(),
+    ubicacion: yup
+    .string()
+    .label('Ubicacion')
     .required()
-    .min(7, 'Seems a bit short...')
-    .max(11, 'We prefer insecure system, try a shorter password.'),
-    
     
   });
 function Description(props){
 
     const [open, setOpen ]=  useState(false);
-
+    const [ubi, setUbi]= useState('test')
 
      function abrirMapa  () {
            return ( setOpen(true))
         
         
+    }
+
+   function okCoordenadas(){
+    setOpen(false);
+    let a = JSON.stringify(props.coordinate)
+    setUbi(a)
     }
     return (
         
@@ -52,12 +61,12 @@ function Description(props){
         <ScrollView>
             <SafeAreaView>
             <View>
-                <Text  style={styles.text}>Datos de Publicación: </Text>
+                <Text  style={{ marginLeft: 30,marginBottom: 30, fontSize:24,color:"#2a3078" }}>Datos de Publicación: </Text>
             </View>
-            <Formik
+         <Formik
             initialValues={
                 {
-                    hora :'', telefono: '', web:''
+                    horario :'', telefono: '', web:''
                 }
             }
            
@@ -75,15 +84,15 @@ function Description(props){
                     <StyledInput
                      label="Horario"
                      formikProps={formikProps}
-                     formikKey="Horario"
+                     formikKey="horario"
                      placeholder="9-12 "
                    
                    />
                     <IconAnt name='phone' style={styles.icono}/>
                     <StyledInput
-                     label="Telefono"
+                     label="Teléfono"
                      formikProps={formikProps}
-                     formikKey="Telefono"
+                     formikKey="telefono"
                      placeholder="11-35456678"
                    
                    />
@@ -91,33 +100,47 @@ function Description(props){
                     <StyledInput
                      label="Web"
                      formikProps={formikProps}
-                     formikKey="Web"
+                     formikKey="web"
                      placeholder="Centro Cultural Buenos Aires"
                    
+                   />  
+
+                   <IconAnt name='earth' style={styles.icono}/>
+                    <StyledInput
+                     label="Ubicacion"
+                     formikProps={formikProps}
+                     formikKey="ubicacion"
+                     placeholder="seleciona un punto en el globo"
+                     value={ubi}
                    />    
-                   <View  style={{alignContent: "center", marginLeft:130}}>
+                    
+
+                   <View  style={{alignContent: "center", marginLeft:100}}>
                         <IconAnt name='earth' style={{fontSize:40}} onPress={abrirMapa}/> 
+                        <Text  style={{ marginLeft: 10,marginBottom: 10, fontSize:15,color:"#2a3078" }}>Agrega las coordenadas !{ubi}</Text>
                     </View>
 
-                   <Modal style={styles.mapStyle}
-                                   animationType="slide"
-                                   transparent={false}
-                                   visible={open}
-                                   >
-                            <MapaTripo style={styles.mapStyle}>
-                               <Button title='Cancelar' style={{margin:10}} onPress={()=> setOpen(false)} />
-                               <Button title='OK' style={{margin:10}} onPress={()=> setOpen(false)}/>
-                            </MapaTripo>
-                       
-                        </Modal>
-
-                        {formikProps.isSubmitting ? (
+                    {formikProps.isSubmitting ? (
                           <ActivityIndicator />
                         ) : (
                           <View style={styles.bot}>
                             <Button title="Publicar" onPress={formikProps.handleSubmit} />
                             </View>
                         )}
+                   <Modal style={styles.container}
+                                   animationType="slide"
+                                   transparent={false}
+                                   visible={open}
+                                   >
+                                <Button title='Cancelar' style={{margin:10}} onPress={()=> setOpen(false)} />
+                               <Button title='OK' style={{margin:10}} onPress={okCoordenadas}/>
+                            <MapaTripo style={styles.mapStyle}>
+                               
+                            </MapaTripo>
+                            
+                        </Modal>
+
+                        
                    </React.Fragment>
                 )}
                    
@@ -142,10 +165,11 @@ function Description(props){
 //estilo de los inputs
 const StyledInput = ({ label, formikProps, formikKey, ...rest }) => {
     const inputStyles = {
-      borderWidth: 1,
+      borderWidth: 2,
       borderColor: 'grey',
       backgroundColor:"rgba(192,192,192,0.3)",
-      marginBottom: 3,
+      marginBottom: 5,
+      fontSize:20
     };
   
     if (formikProps.touched[formikKey] && formikProps.errors[formikKey]) {
@@ -164,17 +188,8 @@ const StyledInput = ({ label, formikProps, formikKey, ...rest }) => {
     );
   };
   //establece el nombre del input y toma el valor del input
-/*const StyledSwitch = ({ formikKey, formikProps, label, ...rest }) => (
-  <FieldWrapper label={label} formikKey={formikKey} formikProps={formikProps}>
-    <Switch
-      value={formikProps.values[formikKey]}
-      onValueChange={value => {
-        formikProps.setFieldValue(formikKey, value);
-      }}
-      {...rest}
-    />
-  </FieldWrapper>
-);*/
+
+  
 const styles = StyleSheet.create({
   
     container: {
@@ -194,10 +209,11 @@ const styles = StyleSheet.create({
 
     },
     mapStyle: {
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
+        width:300, //Dimensions.get('window').width,
+        height: 800,//Dimensions.get('window').height,
+        marginTop:200
       },
-      container: {
+      container3: {
         flex:1,
         justifyContent:"center",
     

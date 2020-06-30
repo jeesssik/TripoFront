@@ -1,34 +1,51 @@
-import React, {useState}from 'react';
+
+import React, {useState, setState}from 'react';
 import MapView, {Marker}from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
 
 
-
 export default class App extends React.Component {
+  
+  
     constructor(props){
       super(props);
       this.state = {
-        markers: []
-      }
-      this.handlePress =  this.handlePress.bind(this);
-    }
-    handlePress(e){
-        this.setState({
-          markers :[
-         ...this.state.markers,
-            {
-              coordinate: e.nativeEvent.coordinate
-            }
+       markers: {
+          coordinate: {
+           latitude:-34.6131500 ,
+            longitude:-58.3772300,
+            },
+         
           
-         ]
-        })
-        let coordsPubli= this.state.markers[0]
+        }
+       };
+      
+     // this.handlePress =  this.handlePress.bind(this);
+    }
+
+    handlePress(e){
+      
+        this.setState({
+          markers :
+          {
+            coordinate: e.nativeEvent.coordinate
+           
+            
+         }
+          
+         
+        });
+        
+        let  coordsPubli= this.state.markers.coordinate
         console.log(coordsPubli)
+        
     }
 
     
+    
     render() {
+      
 
     return (
         <MapView style={styles.mapStyle} showsUserLocation 
@@ -42,11 +59,14 @@ export default class App extends React.Component {
             
           }
         }
-        onPress={this.handlePress}  
+        onPress={e => this.handlePress(e) }  
         >
-          {this.state.markers.map((marker)=>{
-            return <Marker {...marker}/>
-          })}
+          
+           <Marker  
+             coordinate={this.state.markers.coordinate}
+                            
+            />
+     
           </MapView>
         
       
