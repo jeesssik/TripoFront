@@ -1171,7 +1171,7 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@react-native-community/async-storage@^1.11.0":
+"@react-native-community/async-storage@~1.11.0":
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.11.0.tgz#bf81b8813080846f150c67f531987c429b442166"
   integrity sha512-Pq9LlmvtCEKAGdkyrgTcRxNh2fnHFykEj2qnRYijOl1pDIl2MkD5IxaXu5eOL0wgOtAl4U//ff4z40Td6XR5rw==
@@ -1652,6 +1652,13 @@ atob@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
+
+axios@^0.19.2:
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
+  integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
+  dependencies:
+    follow-redirects "1.5.10"
 
 babel-plugin-dynamic-import-node@^2.3.3:
   version "2.3.3"
@@ -2255,6 +2262,13 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
   dependencies:
     ms "2.0.0"
 
+debug@=3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
+  integrity sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
+  dependencies:
+    ms "2.0.0"
+
 debug@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.1.tgz#3b72260255109c6b589cee050f1d516139664791"
@@ -2541,7 +2555,7 @@ expo-font@~8.2.1:
     fbjs "1.0.0"
     fontfaceobserver "^2.1.0"
 
-expo-image-picker@^8.3.0:
+expo-image-picker@~8.3.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-8.3.0.tgz#5a9daacbc1afa7fdbfd31edb22818524ad0b85e2"
   integrity sha512-HCF7SumPE4jXH+EhJ19Xw6G8Lxpms1z6Hxdq/kLlzvZGdzH4ZFBqp3NyTO7dtm0dXtjduljpNK7kQfwWtvmIWQ==
@@ -2590,10 +2604,10 @@ expo-sqlite@~8.2.1:
     "@expo/websql" "^1.0.1"
     lodash "^4.17.15"
 
-expo@^38.0.3:
-  version "38.0.3"
-  resolved "https://registry.yarnpkg.com/expo/-/expo-38.0.3.tgz#7ed781c14866d18e368cdc42bc5c103fb6576e71"
-  integrity sha512-HGuNA5/NHQRFZINoi+CaSOq6n9GG2Mwz7TBXR4TIse7nJcqZkyNO7uUS+hGewgLnsktOPA/wL09q0+P9D4ErWQ==
+expo@^38.0.0:
+  version "38.0.4"
+  resolved "https://registry.yarnpkg.com/expo/-/expo-38.0.4.tgz#577814a89e085a52db702e37859706832e63ea42"
+  integrity sha512-/up/xUtvfgaNgtCd49Sa1FT3PX5UN8xloregNZz/I3iJgSqb1DL7DaFSHsdAau+CrkqIFJaXOkW7coESkaB5Aw==
   dependencies:
     "@babel/runtime" "^7.1.2"
     "@expo/vector-icons" "^10.0.2"
@@ -2830,6 +2844,13 @@ fn-name@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/fn-name/-/fn-name-2.0.1.tgz#5214d7537a4d06a4a301c0cc262feb84188002e7"
   integrity sha1-UhTXU3pNBqSjAcDMJi/rhBiAAuc=
+
+follow-redirects@1.5.10:
+  version "1.5.10"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
+  integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
+  dependencies:
+    debug "=3.1.0"
 
 fontfaceobserver@^2.1.0:
   version "2.1.0"
@@ -4600,7 +4621,7 @@ react-native-looped-carousel@^0.1.13:
     lodash.isequal "^4.5.0"
     prop-types "^15.6.1"
 
-react-native-maps@^0.27.1:
+react-native-maps@0.27.1:
   version "0.27.1"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.27.1.tgz#2f10cd417bb2fd938c9e015b1c9b6d9b1a44b97f"
   integrity sha512-HygBkZBecTnIVRYrSiLRAvu4OmXOYso/A7c6Cy73HkOh9CgGV8Ap5eBea24tvmFGptjj5Hg8AJ94/YbmWK1Okw==
