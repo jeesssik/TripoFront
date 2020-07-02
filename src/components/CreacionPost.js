@@ -5,6 +5,7 @@ import Description from '../components/Description'
 function CreacionPost() {
   return(
 
+<<<<<<< HEAD
     <View  style={styles.container}>
       <View style={styles.social}>
         <Description/>
@@ -12,6 +13,21 @@ function CreacionPost() {
     </View>
   );
 } 
+=======
+    
+
+      function CreacionPost() {
+        return(
+      
+         <View  style={styles.container}>
+               <View style={styles.social}>
+                   <Description/>
+                </View>
+          </View>
+         
+    );
+        }
+>>>>>>> moha
 
 const styles = StyleSheet.create({
     container: {

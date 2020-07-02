@@ -1,38 +1,47 @@
-import React, {useState}from 'react';
-import MapView, {Marker}from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
+import React, {useState, setState}from 'react';
+import MapView, {Marker}from 'react-native-maps';
+import { StyleSheet, Dimensions } from 'react-native';
 
 
 
 export default class App extends React.Component {
+  
+  
     constructor(props){
       super(props);
       this.state = {
-        markers: []
-      }
-      this.handlePress =  this.handlePress.bind(this);
+       markers: {
+          coordinate: {
+          latitude:-34.6131500 , //valores de seteo 
+          longitude:-58.3772300,
+          },
+        }
+       };
+       // this.handlePress =  this.handlePress.bind(this);
     }
+
     handlePress(e){
         this.setState({
-          markers :[
-         ...this.state.markers,
-            {
-              coordinate: e.nativeEvent.coordinate
-            }
-          
-         ]
-        })
-        let coordsPubli= this.state.markers[0]
+          markers :
+          {
+            coordinate: e.nativeEvent.coordinate 
+         }
+        });
+        
+        let  coordsPubli= this.state.markers.coordinate
         console.log(coordsPubli)
+        //cuando selecciono el marker me toma los valores de inicializacion (coordenadas de buenos aires) la segunda vez si me toma los del marker
     }
 
     
+    
     render() {
+      
 
     return (
-      <View style={styles.container}>
         <MapView style={styles.mapStyle} showsUserLocation 
+<<<<<<< HEAD
         initialRegion={
           {
             latitude: 31.776685,
@@ -47,22 +56,31 @@ export default class App extends React.Component {
           {this.state.markers.map((marker)=>{
             return <Marker {...marker}/>
           })}
+=======
+            initialRegion={
+              {
+                latitude: -34.6131500,
+                longitude: -58.3772300,
+                latitudeDelta: 0.04,
+                longitudeDelta: 0.05,
+              }
+            }
+            onPress={e => this.handlePress(e) }  //llamo funcion
+            >
+           <Marker  
+             coordinate={this.state.markers.coordinate}/> 
+>>>>>>> moha
           </MapView>
         
-      </View>
+      
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+ 
   mapStyle: {
-    width: 300,
-    height: 200,
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
   },
 });

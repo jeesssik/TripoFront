@@ -47,7 +47,7 @@ function Perfil(props){
 
           <View style={{marginTop: 32}}>
           <Text style={[styles.text, {fontSize:24, marginLeft: 10}]}>Ultimos Posteos </Text>
-            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+            <ScrollView vertical={true} showsVerticalScrollIndicatorr={false}>
                 <View style={styles.mediaImageContainer}>
                     <Image source={require("../assets/avatars.jpg")} style={styles.image} resizeMode='cover'></Image>
                 </View>
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
         flex:1,
         width:undefined,
         height: undefined,
+        marginBottom: 30
       },
       profileImage:{
           width: 200,
