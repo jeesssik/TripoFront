@@ -4,17 +4,8 @@ import { View, Text, Modal, TouchableOpacity, Image, SafeAreaView, ScrollView, D
 import {FontAwesome} from '@expo/vector-icons'
 import { Button } from 'react-native-elements';
 import CreacionPost from '../components/CreacionPost'
-<<<<<<< HEAD
 import * as ImagePicker from 'expo-image-picker'; // acceso a galeria*/
     
-=======
-import * as ImagePicker from 'expo-image-picker'; // acceso a galeria
-//import { white } from 'ansi-colors';
-//import Carousel from '../components/Carousel'
-import Carousel from 'react-native-looped-carousel';
-        
-
->>>>>>> moha
 
 export default function CameraPage () {
     const camRef  = useRef(null);
@@ -67,94 +58,6 @@ export default function CameraPage () {
             setOpen(true);
           
         }
-<<<<<<< HEAD
-    };
-    
-    
-    return (
-        <React.Fragment>            
-            <SafeAreaView style={{flex: 1, justifyContent: 'flex-end'}} >
-            <Camera
-                type={type}
-                style={{
-                    height: winHeight,
-                    width: winWidth,
-                    position: 'absolute',
-                    left: 0,
-                    top: 0,
-                    right: 0,
-                    bottom: 0,
-                }}
-                ref={camRef}
-            >          
-            <View style={{flex:1, backgroundColor:'transparent', flexDirection:'row'}} >
-                <TouchableOpacity style={{
-                    margin:30
-                    }} onPress={pickImage}>
-                    <Text style={{color: 'white', fontSize:20}}>Galeria</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{
-                    position: 'absolute',
-                    bottom: 150,
-                    left:25,
-                    }} onPress={()=>{
-                        setType(
-                        type ===Camera.Constants.Type.back
-                        ? Camera.Constants.Type.front
-                        : Camera.Constants.Type.back
-                    );
-                }}>
-                    <FontAwesome
-                        name='refresh'
-                        size ={23}
-                        color = '#FFF'
-                    ></FontAwesome> 
-                </TouchableOpacity>
-            </View>
-            </Camera>         
-            <TouchableOpacity style={{
-                justifyContent:'center',
-                alignItems: 'center',
-                backgroundColor:'rgba(255, 255, 255, 0.3)',
-                borderStartColor:'gray',
-                margin:120,
-                marginBottom:30,
-                borderRadius:60,
-                height:50,
-                }}
-                onPress={takePicture}>
-
-                <FontAwesome
-                    name='camera'
-                    size ={40}
-                ></FontAwesome> 
-            </TouchableOpacity>
-            {
-                capturePhoto && 
-                <Modal
-                animationType="slide"
-                transparent={false}
-                visible={open}
-                >
-
-                    <ScrollView>
-                        <TouchableOpacity style={{margin:20}} onPress={()=> setOpen(false)}>
-                            <Text>Cancelar</Text>
-                        </TouchableOpacity> 
-                        <Image style={{width:'100%', height:300,  borderRadius: 20}}
-                            source={{uri:capturePhoto}}
-                            >
-                        </Image>
-                        <Button title='Publicar' style={{margin:10}} onPress={props.onPress}/>
-                        <CreacionPost></CreacionPost>
-                    </ScrollView>
-                </Modal>
-            }    
-            </SafeAreaView>
-        </React.Fragment>
-    );
-};
-=======
       };
     
     
@@ -186,7 +89,6 @@ export default function CameraPage () {
                                     bottom: 150,
                                     left:240,
                                     
->>>>>>> moha
 
                                 }} onPress={pickImage}>
                                     <Text style={{color: 'white', fontSize:20}}>Galeria</Text>

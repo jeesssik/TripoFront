@@ -41,22 +41,6 @@ export default class App extends React.Component {
 
     return (
         <MapView style={styles.mapStyle} showsUserLocation 
-<<<<<<< HEAD
-        initialRegion={
-          {
-            latitude: 31.776685,
-            longitude: 35.234491,
-            latitudeDelta: 0.04,
-            longitudeDelta: 0.05,
-            
-          }
-        }
-        onPress={this.handlePress}  
-        >
-          {this.state.markers.map((marker)=>{
-            return <Marker {...marker}/>
-          })}
-=======
             initialRegion={
               {
                 latitude: -34.6131500,
@@ -69,7 +53,6 @@ export default class App extends React.Component {
             >
            <Marker  
              coordinate={this.state.markers.coordinate}/> 
->>>>>>> moha
           </MapView>
         
       

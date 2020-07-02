@@ -7,16 +7,6 @@ import {  View,
     Dimensions,
     ScrollView,
     SafeAreaView,
-<<<<<<< HEAD
-    TextInput} from 'react-native'
-//import MaterialText from '../components/material-textfieldFilled';
-import IconAnt from 'react-native-vector-icons/AntDesign' 
-//import Localizacion from '../components/Localizacion'
-import MapaTripo from '../components/MapaTripo'
-import { Formik } from 'formik';
-import * as yup from 'yup';
-
-=======
     TextInput,
     ActivityIndicator} from 'react-native';
 import IconAnt from 'react-native-vector-icons/AntDesign' ;
@@ -25,35 +15,23 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 
 
->>>>>>> moha
 const validationSchema = yup.object().shape({
     horario: yup
     .string()
     .label('Horario')
     .required(),
     telefono: yup
-<<<<<<< HEAD
-    .string()
-=======
     .number()
->>>>>>> moha
     .label('Telefono')
     .required(),
     web: yup
     .string()
     .label('Web')
-<<<<<<< HEAD
-    .required()
-    .min(7, 'Seems a bit short...')
-    .max(11, 'We prefer insecure system, try a shorter password.'),
-    
-=======
     .required(),
     ubicacion: yup
     .string()
     .label('Ubicacion')
     .required()
->>>>>>> moha
     
   });
 function Description(props){
@@ -74,63 +52,6 @@ function Description(props){
     }
     
     return (
-<<<<<<< HEAD
-        
-       
-
-        <View style={styles.container}> 
-        <ScrollView>
-            <SafeAreaView>
-            <View>
-                <Text  style={styles.text}>Datos de Publicación: </Text>
-            </View>
-            <Formik
-            initialValues={
-                {
-                    hora :'', telefono: '', web:''
-                }
-            }
-           
-            onSubmit={(values, actions) => {
-                alert(JSON.stringify(values));
-                setTimeout(() => {
-                  actions.setSubmitting(false);
-                }, 1000);
-              }}
-              validationSchema={validationSchema}
-            >
-                {formikProps =>(
-                    <React.Fragment>
-                    <IconAnt name='clockcircle' style={styles.icono}/>
-                    <StyledInput
-                     label="Horario"
-                     formikProps={formikProps}
-                     formikKey="Horario"
-                     placeholder="9-12 "
-                   
-                   />
-                    <IconAnt name='phone' style={styles.icono}/>
-                    <StyledInput
-                     label="Telefono"
-                     formikProps={formikProps}
-                     formikKey="Telefono"
-                     placeholder="11-35456678"
-                   
-                   />
-                   <IconAnt name='tag' style={styles.icono}/>
-                    <StyledInput
-                     label="Web"
-                     formikProps={formikProps}
-                     formikKey="Web"
-                     placeholder="Centro Cultural Buenos Aires"
-                   
-                   />    
-                   <View  style={{alignContent: "center", marginLeft:130}}>
-                        <IconAnt name='earth' style={{fontSize:40}} onPress={abrirMapa}/> 
-                    </View>
-
-                   <Modal style={styles.mapStyle}
-=======
        <View style={styles.container}> 
          <ScrollView>
             <SafeAreaView>
@@ -202,37 +123,10 @@ function Description(props){
                             </View>
                         )}
                    <Modal style={styles.container}
->>>>>>> moha
                                    animationType="slide"
                                    transparent={false}
                                    visible={open}
                                    >
-<<<<<<< HEAD
-                            <MapaTripo style={styles.mapStyle}>
-                               <Button title='Cancelar' style={{margin:10}} onPress={()=> setOpen(false)} />
-                               <Button title='OK' style={{margin:10}} onPress={()=> setOpen(false)}/>
-                            </MapaTripo>
-                       
-                        </Modal>
-
-                        {formikProps.isSubmitting ? (
-                          <ActivityIndicator />
-                        ) : (
-                          <View style={styles.bot}>
-                            <Button title="Publicar" onPress={formikProps.handleSubmit} />
-                            </View>
-                        )}
-                   </React.Fragment>
-                )}
-                   
-
-            </Formik>
-            </SafeAreaView>
-            </ScrollView>
-        </View>
-    
-      )  }
-=======
 
                             <Button title='Cancelar' style={{margin:10}} onPress={()=> setOpen(false)} />
                             <Button title='OK' style={{margin:10}} onPress={okCoordenadas}/>
@@ -288,59 +182,10 @@ const StyledInput = ({ label, formikProps, formikKey, ...rest }) => {
       </FieldWrapper>
     );
   };
->>>>>>> moha
 
   //establece el nombre del input y toma el valor del input
 
-<<<<<<< HEAD
-      const FieldWrapper = ({ children, label, formikProps, formikKey }) => (
-        <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
-          <Text style={{ marginBottom: 3 }}>{label}</Text>
-          {children}
-          <Text style={{ color: 'red' }}>
-            {formikProps.touched[formikKey] && formikProps.errors[formikKey]}
-          </Text>
-        </View>
-      );
-//estilo de los inputs
-const StyledInput = ({ label, formikProps, formikKey, ...rest }) => {
-    const inputStyles = {
-      borderWidth: 1,
-      borderColor: 'grey',
-      backgroundColor:"rgba(192,192,192,0.3)",
-      marginBottom: 3,
-    };
   
-    if (formikProps.touched[formikKey] && formikProps.errors[formikKey]) {
-      inputStyles.borderColor = 'red';
-    }
-  
-    return (
-      <FieldWrapper label={label} formikKey={formikKey} formikProps={formikProps}>
-        <TextInput
-          style={inputStyles}
-          onChangeText={formikProps.handleChange(formikKey)}
-          onBlur={formikProps.handleBlur(formikKey)}
-          {...rest}
-        />
-      </FieldWrapper>
-    );
-  };
-  //establece el nombre del input y toma el valor del input
-/*const StyledSwitch = ({ formikKey, formikProps, label, ...rest }) => (
-  <FieldWrapper label={label} formikKey={formikKey} formikProps={formikProps}>
-    <Switch
-      value={formikProps.values[formikKey]}
-      onValueChange={value => {
-        formikProps.setFieldValue(formikKey, value);
-      }}
-      {...rest}
-    />
-  </FieldWrapper>
-);*/
-=======
-  
->>>>>>> moha
 const styles = StyleSheet.create({
   
     container: {
@@ -369,14 +214,6 @@ const styles = StyleSheet.create({
         justifyContent:"center",
     
       },
-<<<<<<< HEAD
-      container: {
-        flex:1,
-        justifyContent:"center",
-    
-      },
-=======
->>>>>>> moha
       container2: {
         flex:1,
         justifyContent:"center",
