@@ -49,7 +49,7 @@ function IndvPost(props){
                             <TextInput
                             onChangeText={handleChange('comentario')}
                             onBlur={handleBlur('comentario')}
-                            value={values.email}
+                            value={values.comentario}
                             style={{
                                 backgroundColor:"rgba(192,192,192,0.3)",
                                 padding: 4,
