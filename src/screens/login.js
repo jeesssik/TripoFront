@@ -5,19 +5,20 @@ import {
 import { Text,TextInput} from 'react-native-paper';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+const axios = require('axios');
 
 
 import Titulo from '../components/titulo';
 
 const validationSchema = yup.object().shape({
-  email: yup
+  userName: yup
     .string()
-    .label('Email')
-    .email()
+    .label('usuario')
+    //.email()
     .required(),
-  password: yup
+  contrasenia: yup
     .string()
-    .label('Password')
+    .label('Contraseña')
     .required()
     .min(2, 'Seems a bit short...')
     .max(10, 'We prefer insecure system, try a shorter password.'),
@@ -40,12 +41,15 @@ export default class Login extends React.Component {
           <Text style={{ marginLeft: 30,fontSize:24,color:"#2a3078" }}>Login</Text>
           <SafeAreaView style={{ marginTop: 40 }}>
             <Formik
-              initialValues={{ email: '', password: '' }}
+              initialValues={{ userName: '', contrasenia: '' }}
               onSubmit={(values, actions) => {
-                alert(JSON.stringify(values));
-                setTimeout(() => {
-                  actions.setSubmitting(false);
-                }, 1000);
+                  axios.post('https://immense-scrubland-96694.herokuapp.com/login/signin', values)
+                  .then((response) =>{
+                    console.log(response.data.token);
+                  })
+                  .catch(function (error) {
+                    console.log(error.response);
+                  })
               }}
               validationSchema={validationSchema}
             >
@@ -53,14 +57,14 @@ export default class Login extends React.Component {
                 <React.Fragment>
                   <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
                     <Text style={{ marginBottom: 3 }}>Email</Text>
-                    <TextInput
+                    <TextInput name = "userName"
                       placeholder="johndoe@example.com"
                       style={{
                         backgroundColor:"rgba(192,192,192,0.3)",
                         marginBottom: 3,
                       }}
-                      onChangeText={formikProps.handleChange('email')}
-                      onBlur={formikProps.handleBlur('email')}
+                      onChangeText={formikProps.handleChange('userName')}
+                      onBlur={formikProps.handleBlur('userName')}
                      // autoFocus
                     />
                     <Text style={{ color: 'darkred' }}>
@@ -70,14 +74,14 @@ export default class Login extends React.Component {
 
                   <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
                     <Text style={{ marginBottom: 3 }}>Password</Text>
-                    <TextInput
+                    <TextInput name="contrasenia"
                       placeholder="password"
                       style={{
                         backgroundColor:"rgba(192,192,192,0.3)",
                         marginBottom: 3,
                       }}
-                      onChangeText={formikProps.handleChange('password')}
-                      onBlur={formikProps.handleBlur('password')}
+                      onChangeText={formikProps.handleChange('contrasenia')}
+                      onBlur={formikProps.handleBlur('contrasenia')}
                       secureTextEntry
                     />
                     <Text style={{ color: 'darkred' }}>
@@ -136,4 +140,4 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   
-});
+})

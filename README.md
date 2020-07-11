@@ -2,16 +2,16 @@
 
 expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
 
-npm install @react-navigation/stack
+yarn add @react-navigation/stack
 
 
-npm install react-navigation-stack @react-native-community/masked-view react-native-safe-area-context
+yarn add react-navigation-stack @react-native-community/masked-view react-native-safe-area-context
 
 yarn add react-native-screens
 
-npm i react-native-reanimated
+yarn add react-native-reanimated
 
-npm install @react-navigation/native
+yarn add @react-navigation/native
 
 
 
