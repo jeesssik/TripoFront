@@ -5,10 +5,12 @@ import Card from './Card';
 
 
 
+
+//aca con el user y el token puedo llamar a otros metodos  
 const DATA = [
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
+    id: user.id,
+    title: user.publicaciones,
     actual: 1
   },
   {
@@ -46,6 +48,10 @@ const DATA = [
 ];
 
 export default function App(props) {
+  
+  let user = navigation.getParam('user',{})
+  let token = navigation.getParam('token',{})
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList

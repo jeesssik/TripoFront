@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 
+
+
 //import Tabs from "./src/navigation/BottomTabNavigator"
 //import Login from "./src/screens/login"
 //import Headder from "./src/components/mainheader"
@@ -13,6 +15,7 @@ import NavegaLog from './src/navigation/navegacionLog'
 
 // Contexto, una forma de pasar datos que pueden considerarse Globales 
 //a un árbol de componentes sin la necesidad de utilizar Redux.
+
 const AuthContext = React.createContext(); // creando el contexto
 
 function SplashScreen() {
@@ -83,7 +86,34 @@ userToken: es el token del usuario, si no es nulo (null) se asume que el usuario
 */
 
 export default function App({ navigation }) {
-  const [state, dispatch] = React.useReducer(
+
+  const state ={
+    publicaciones:[]
+  }
+(
+  getPublicaciones = async () => {
+    let data  = await api.get('/').then(({data}) 
+     => data );
+    this.state.setState({publicaciones: data})
+  })
+}
+  
+createPublicaciones = async ()=> {
+let res = await api.post('/',{title: "test", id: 4, author: 'test'})
+console.log(res)
+this.getPublicaciones();
+}
+
+deletePublicaciones = async (id) => {
+  let data = await api.delete(`/${id}`)
+}
+
+
+updatePublicaciones = async (id, value) => {
+  let data = await  api.patch(`/${id}`,{title: value})
+  this.getPublicaciones();
+}
+  
     (prevState, action) => {
       switch (action.type) {
         case 'RESTORE_TOKEN':

@@ -1,15 +1,14 @@
 
 import React, {useState}from 'react'
 import {  View,
-    StyleSheet,
-    Text,
-    Modal,
-    Button,
-    Dimensions,
-    ScrollView,
-    SafeAreaView,
-    TextInput,
-    ActivityIndicator} from 'react-native';
+          StyleSheet,
+          Text,
+          Modal,
+          Button,
+          ScrollView,
+          SafeAreaView,
+          TextInput,
+          ActivityIndicator} from 'react-native';
 import IconAnt from 'react-native-vector-icons/AntDesign' ;
 import MapaTripo from '../components/MapaTripo';
 import { Formik } from 'formik';

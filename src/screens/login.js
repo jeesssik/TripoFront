@@ -1,12 +1,11 @@
 import React from 'react';
 import {
-  SafeAreaView,ActivityIndicator, View, StyleSheet,ImageBackground,Button 
+  SafeAreaView,ActivityIndicator, View, StyleSheet,ImageBackground,Button, AsyncStorage 
 } from 'react-native';
 import { Text,TextInput} from 'react-native-paper';
 import { Formik } from 'formik';
 import * as yup from 'yup';
-
-
+import api from '../apiconecc'
 import Titulo from '../components/titulo';
 
 const validationSchema = yup.object().shape({
@@ -23,9 +22,49 @@ const validationSchema = yup.object().shape({
     .max(10, 'We prefer insecure system, try a shorter password.'),
 });
 
-export default class Login extends React.Component {
-  
+
+ export default class Login extends React.Component {
+  //verificar con ivan la estructura de la clase 
+
   render(){
+    
+  const {navigation} = props;
+
+  //le pagamos a servidor, guardamos el token, agregamos el token al config
+  //usamos el metodo formik.handle que antes estaba en "iniciar sesion"
+  //hacemos el navigate a la pantalla de publicaciones ! 
+  const handleSub = async () =>{
+  let r = api.get('/signIn?userName=' +userName.value + "&contrasenia="+contrasenia.value).
+  then(function(res){
+      if (res.data.status != "error"){
+          let token = res.data.token
+          api({
+          method: 'get',
+          url: '',
+          headers:{
+            Authorization: 'Bearer'+ token
+          }
+        }).then(function (response){
+          formikProps.handleSubmit
+          console.log(response.data)
+          let userMD = response.data
+          navigation.navigate('Publicaciones', {
+            user: userMD, //le pasamos el token a la siguiente pantalla en este caso publicaciones
+            token: token
+          });
+        }).catch(function(error){
+          console.log(error)
+        })
+       
+      }else {
+        console.log(res.data.messages);
+      }
+    }).catch(function (error){
+      console.log(error);
+      
+    })
+  };
+  
     return(
   <View style={styles.container}>
     
@@ -96,7 +135,7 @@ export default class Login extends React.Component {
                     <ActivityIndicator />
                   ) : (
                     <View style={styles.inputs}>
-                      <Button title="Iniciar Sesión" onPress={formikProps.handleSubmit} />
+                      <Button title="Iniciar Sesión" onPress={handleSub} />
                     </View>
                   )}
                 </React.Fragment>

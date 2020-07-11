@@ -2,13 +2,10 @@ import React, { useState, useEffect, useRef} from 'react';
 import { Camera } from 'expo-camera';
 import { View, Text, Modal, TouchableOpacity, Image, SafeAreaView, ScrollView, StyleSheet, Dimensions} from 'react-native';
 import {FontAwesome} from '@expo/vector-icons'
-import { Button } from 'react-native-elements';
 import CreacionPost from '../components/CreacionPost'
 import * as ImagePicker from 'expo-image-picker'; // acceso a galeria
-//import { white } from 'ansi-colors';
-//import Carousel from '../components/Carousel'
 import Carousel from 'react-native-looped-carousel';
-        
+// import Gallery from '../components/galle';    // en espera para implementar varias fotos    
 
 
 export default function CameraPage () {
@@ -18,7 +15,8 @@ export default function CameraPage () {
     const [capturePhoto, setCapturePhoto ]= useState(null);
     const [open, setOpen ]=  useState(false);
     const { width: winWidth, height: winHeight } = Dimensions.get('window');
-
+     
+   
     useEffect(()=>{
         (async ()=>{
             const{status}= await Camera.requestPermissionsAsync();
@@ -30,22 +28,22 @@ export default function CameraPage () {
     if (hasPermission === null){
         return <View/>;
     }
-    
     if(hasPermission === false){
         return <Text>Acceso denegado</Text>
     }
-    
-    
-    
+    function cambiarEstado(){
+        setOpen(true)
+    }
     async function takePicture  () {
         if (camRef){
+            
             const data = await camRef.current.takePictureAsync();
             setCapturePhoto (data.uri)
-            setOpen(true)
-        console.log(data)
-        }
-        
+            cambiarEstado()
+            console.log(data)
+        } 
     }
+    
 
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -86,9 +84,18 @@ export default function CameraPage () {
                     }}
                     ref={camRef}
                 >
-                    
-                        
-                    
+                     <View style={{flex:1, backgroundColor:'transparent', flexDirection:'row'}}>
+                        <TouchableOpacity style={{
+                                        position: 'absolute',
+                                        bottom: 220,
+                                        left:10,
+                                        
+                                        
+
+                                    }} onPress={cambiarEstado}>
+                                        <Text style={{color: 'white', fontSize:20}}>OK</Text>
+                                    </TouchableOpacity>
+                     </View>
                     <View style={{flex:1, backgroundColor:'transparent', flexDirection:'row'}} >
                     
                                 <TouchableOpacity style={{
@@ -100,6 +107,7 @@ export default function CameraPage () {
                                 }} onPress={pickImage}>
                                     <Text style={{color: 'white', fontSize:20}}>Galeria</Text>
                                 </TouchableOpacity>
+                                
                                 <TouchableOpacity style={{
                                     position: 'absolute',
                                     bottom: 150,
@@ -113,17 +121,18 @@ export default function CameraPage () {
 
                                 );
                                 }}>
-
-                            <FontAwesome
-                            name='refresh'
-                            size ={23}
-                            color = '#FFF'
-                            
-                            ></FontAwesome> 
-                                </TouchableOpacity>
+                                        
+                                   
+                                <FontAwesome
+                                name='refresh'
+                                size ={23}
+                                color = '#FFF'
                                 
+                                ></FontAwesome> 
+                                </TouchableOpacity>
+                                           
 
-                            </View>
+                        </View>
                     </Camera>
                     
                         
@@ -164,10 +173,24 @@ export default function CameraPage () {
                                       <Text>Cancelar</Text>
                                  </TouchableOpacity> 
                                 
+                                 <Carousel
+                                    autoplay={false}
+                                    swipe={true}
+                                    style={{width:'100%', height:300,  borderRadius: 20}}
+                                    bullets={true}
                                     
-                                    <View style={{width:'100%', height:300,  borderRadius: 20}}>
-                                        <Image style={{width:'100%', height:300,  borderRadius: 20}} source={{ uri:capturePhoto }} />
-                                    </View>
+                                    >
+                                       { 
+                                       <View style={{width:'100%', height:300,  borderRadius: 20}}>
+                                            <Image style={{width:'100%', height:300,  borderRadius: 20}} source={{ uri:capturePhoto }} />
+                                        </View>    
+                                         } 
+                                 </Carousel>
+
+                                   
+                                    <TouchableOpacity style={{margin:20}} onPress={()=> setOpen(false)}>
+                                      <Text> + Agregar otra imagen</Text>
+                                 </TouchableOpacity> 
                                     <CreacionPost/>
                             </ScrollView>
                         </Modal> }
@@ -177,13 +200,7 @@ export default function CameraPage () {
                         );
                     };
 
-                    //para implementar con varias imagenes, dando la posibilidad de subir varias 
+                    //para implementar con varias imagenes ver la posibilidad de un carousel dinamico 
+
                                     
-                                    /*<Carousel
-                                    autoplay={false}
-                                    swipe={true}
-                                    style={{width:'100%', height:300,  borderRadius: 20}}
-                                    bullets={true}
                                     
-                                    >
-                                    </Carousel>*/ 
