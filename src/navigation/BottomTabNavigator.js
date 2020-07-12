@@ -30,7 +30,7 @@ export default class MyComponent extends React.Component {
     //Inicio: Publicaciones,
     Inicio: NavPosts,
     Buscar: RecentsRoute,
-    Publicar: NavPosts,
+    Publicar: Creacion,
     Perfil: Perfil,
   });
 

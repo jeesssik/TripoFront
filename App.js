@@ -36,7 +36,7 @@ function SignInScreen() {
 
   return (
     
-    /*<View>
+    <View>
       <TextInput
         placeholder="Username"
         value={username}
@@ -50,9 +50,9 @@ function SignInScreen() {
       />
       <Button title="Sign in" onPress={() => signIn({ username, password })} />
     </View>
-    */
     
-    <NavegaLog   />
+    
+    //<NavegaLog />
   
   );
 }
