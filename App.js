@@ -36,11 +36,7 @@ function SignInScreen() {
 
   return (
     
-<<<<<<< HEAD
-   <View>
-=======
     /*<View>
->>>>>>> 255d26ce97f837213a81fd4071fa3a642fce88af
       <TextInput
         placeholder="Username"
         value={username}
@@ -56,11 +52,7 @@ function SignInScreen() {
     </View>
     */
     
-<<<<<<< HEAD
-    //<NavegaLog   />
-=======
     <NavegaLog   />
->>>>>>> 255d26ce97f837213a81fd4071fa3a642fce88af
   
   );
 }

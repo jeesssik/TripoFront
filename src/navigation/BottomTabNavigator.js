@@ -6,12 +6,8 @@ import NavPosts from './navegecionPosteos'
 import Perfil from '../screens/Perfil';
 import Creacion from '../screens/creacionPost';
 import { View } from 'react-native';
-<<<<<<< HEAD
-
-=======
 //import CamaraTripo from '../screens/CamaraTripo'
 //const Publicaciones = () => <Text>Music</Text>;
->>>>>>> ivan
 
 const AlbumsRoute = () => <Text>Albums</Text>;
 
@@ -34,11 +30,7 @@ export default class MyComponent extends React.Component {
     //Inicio: Publicaciones,
     Inicio: NavPosts,
     Buscar: RecentsRoute,
-<<<<<<< HEAD
-    Publicar: Creacion,
-=======
     Publicar: NavPosts,
->>>>>>> ivan
     Perfil: Perfil,
   });
 
