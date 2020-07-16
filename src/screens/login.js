@@ -14,7 +14,7 @@ const validationSchema = yup.object().shape({
     .string()
     .label('Usuario o Email')
     .required(),
-  contrasenia: yup
+  password: yup
     .string()
     .label('Contraseña')
     .required()
@@ -39,7 +39,7 @@ export default class Login extends React.Component {
           <Text style={{ marginLeft: 30,fontSize:24,color:"#2a3078" }}>Login</Text>
           <SafeAreaView style={{ marginTop: 40 }}>
           <Formik
-            initialValues={{ userName: '', contrasenia: '' }}
+            initialValues={{ email: '', password: '' }}
             onSubmit={(values, actions) => {
                 let nav = this.props.navigation
                 axios.post('https://immense-scrubland-96694.herokuapp.com/login/signin', {
@@ -74,8 +74,8 @@ export default class Login extends React.Component {
               {formikProps => (
                 <React.Fragment>
                   <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
-                    <Text style={{ marginBottom: 3 }}>Email o Usuario</Text>
-                    <TextInput name = "Usuario O Email"
+                    <Text style={{ marginBottom: 3 }}>Email</Text>
+                    <TextInput name = "email"
                       placeholder="johndoe@example.com"
                       style={{
                         backgroundColor:"rgba(192,192,192,0.3)",
