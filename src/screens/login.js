@@ -5,15 +5,14 @@ import {
 import { Text,TextInput} from 'react-native-paper';
 import { Formik } from 'formik';
 import * as yup from 'yup';
-
+const axios = require('axios');
 
 import Titulo from '../components/titulo';
 
 const validationSchema = yup.object().shape({
   email: yup
     .string()
-    .label('Email')
-    .email()
+    .label('Usuario o Email')
     .required(),
   password: yup
     .string()
@@ -43,14 +42,16 @@ export default class Login extends React.Component {
             initialValues={{ userName: '', contrasenia: '' }}
             onSubmit={(values, actions) => {
                 let nav = this.props.navigation
-                axios.post('https://immense-scrubland-96694.herokuapp.com/login/signin', values)
-                
+                axios.post('https://immense-scrubland-96694.herokuapp.com/login/signin', {
+                  userName: values.email,
+                  contrasenia: values.password
+                })
                 .then(function(response) {
                   if (response.data.status != "error"){
                     let token = response.data.token
                     axios({
                       method: 'get',
-                      url: 'https://immense-scrubland-96694.herokuapp.com/users/user/'+values.userName,
+                      url: 'https://immense-scrubland-96694.herokuapp.com/users/user/'+values.email,
                       headers: { 
                         'Authorization': 'Bearer ' +  token,
                     }
