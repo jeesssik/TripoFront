@@ -1,18 +1,13 @@
+
 import * as React from 'react';
 import { AsyncStorage, Text, Button,TextInput, View, StyleSheet} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 
-//import Tabs from "./src/navigation/BottomTabNavigator"
-//import Login from "./src/screens/login"
-//import Headder from "./src/components/mainheader"
-
 import Maiin from "./src/screens/main"
 import NavegaLog from './src/navigation/navegacionLog'
 
-// Contexto, una forma de pasar datos que pueden considerarse Globales 
-//a un árbol de componentes sin la necesidad de utilizar Redux.
 const AuthContext = React.createContext(); // creando el contexto
 
 function SplashScreen() {
@@ -27,14 +22,6 @@ function HomeScreen() {
   const { signOut } = React.useContext(AuthContext);
 
   return (
-       /*
-    <View style={styles.container}>
-      <View style={styles.container1} >
-            <Headder alpresionar={signOut}/>
-          </View>
-      <Tabs></Tabs>
-    </View>
-*/
     <Maiin salida={signOut}/>
 
 
@@ -49,7 +36,7 @@ function SignInScreen() {
   const { signIn } = React.useContext(AuthContext);
 
   return (
-    
+  /*
     <View>
       <TextInput
         placeholder="Username"
@@ -64,23 +51,15 @@ function SignInScreen() {
       />
       <Button title="Sign in" onPress={() => signIn({ username, password })} />
     </View>
-
     
-    //<NavegaLog   />
+    */
+    <NavegaLog />
   
   );
 }
 
 const Stack = createStackNavigator();
 
-//Logica de restauracion del token
-
-/*
-isLoading: se setea a true cuando se trata de chequear si hay un token ya almacenado en el asyncStorage
-isSignOut: se setea a true cuando el usuario cierre sesion
-userToken: es el token del usuario, si no es nulo (null) se asume que el usuario está logueado, sino NO.
-
-*/
 
 export default function App({ navigation }) {
   const [state, dispatch] = React.useReducer(
@@ -119,7 +98,6 @@ export default function App({ navigation }) {
 En este método, el usuario se identifica al igual que con la autenticación básica, con sus credenciales,
  nombre de usuario y contraseña. Pero en este caso, con la primera petición de autentificación, el servidor 
  generará un token basado en esas credenciales.
-
 El servidor guarda en base de datos este registro y lo devuelve al usuario para que a partir de ese momento no 
 envíe más credenciales de inicio de sesión en cada petición HTTP.  En lugar de las credenciales, simplemente se 
 debe enviar el token codificado en cada petición HTTP.*/
@@ -196,14 +174,6 @@ debe enviar el token codificado en cada petición HTTP.*/
   );
 }
 
-
-
-
-
-
-
-
-
 const styles = StyleSheet.create({
   
   container: {
@@ -218,6 +188,4 @@ const styles = StyleSheet.create({
    }
   
 });
-
-
 

@@ -39,16 +39,37 @@ export default class Login extends React.Component {
           <Titulo content='Tripo' /> 
           <Text style={{ marginLeft: 30,fontSize:24,color:"#2a3078" }}>Login</Text>
           <SafeAreaView style={{ marginTop: 40 }}>
-            <Formik
-              initialValues={{ email: '', password: '' }}
-              onSubmit={(values, actions) => {
-                alert(JSON.stringify(values));
-                setTimeout(() => {
-                  actions.setSubmitting(false);
-                }, 1000);
-              }}
-              validationSchema={validationSchema}
-            >
+          <Formik
+            initialValues={{ userName: '', contrasenia: '' }}
+            onSubmit={(values, actions) => {
+                let nav = this.props.navigation
+                axios.post('https://immense-scrubland-96694.herokuapp.com/login/signin', values)
+                
+                .then(function(response) {
+                  if (response.data.status != "error"){
+                    let token = response.data.token
+                    axios({
+                      method: 'get',
+                      url: 'https://immense-scrubland-96694.herokuapp.com/users/user/'+values.userName,
+                      headers: { 
+                        'Authorization': 'Bearer ' +  token,
+                    }
+                      
+                }).then(function(res){
+
+                  console.log(JSON.stringify(res.data));
+                  nav.navigate('BotTabNav')
+
+                  }).catch(function (error) {
+                    console.log(error);
+              });
+                  }else {
+                    console.log(res.data.messages);
+                  }}).catch(function(e){
+                    console.log(e);
+                  });
+            }}
+            validationSchema={validationSchema}>
               {formikProps => (
                 <React.Fragment>
                   <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
