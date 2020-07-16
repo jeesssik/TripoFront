@@ -6,22 +6,13 @@ import { Text,TextInput} from 'react-native-paper';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 const axios = require('axios');
-<<<<<<< HEAD
-
-=======
->>>>>>> jess
 
 import Titulo from '../components/titulo';
 
 const validationSchema = yup.object().shape({
   userName: yup
     .string()
-<<<<<<< HEAD
-    .label('usuario')
-    //.email()
-=======
     .label('Usuario o Email')
->>>>>>> jess
     .required(),
   contrasenia: yup
     .string()
