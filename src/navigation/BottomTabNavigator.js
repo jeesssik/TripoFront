@@ -1,13 +1,18 @@
 import * as React from 'react';
 import { BottomNavigation, Text, Button } from 'react-native-paper';
 
-//import Publicaciones from '../screens/Publicaciones';
 import NavPosts from './navegecionPosteos'
 import Perfil from '../screens/Perfil';
 import Creacion from '../screens/creacionPost';
+import Buscar from '../screens/buscar';
 import { View } from 'react-native';
+<<<<<<< HEAD
 //import CamaraTripo from '../screens/CamaraTripo'
 //const Publicaciones = () => <Text>Music</Text>;
+=======
+
+
+>>>>>>> jess
 
 const AlbumsRoute = () => <Text>Albums</Text>;
 
@@ -29,7 +34,7 @@ export default class MyComponent extends React.Component {
   _renderScene = BottomNavigation.SceneMap({
     //Inicio: Publicaciones,
     Inicio: NavPosts,
-    Buscar: RecentsRoute,
+    Buscar: Buscar,
     Publicar: Creacion,
     Perfil: Perfil,
   });

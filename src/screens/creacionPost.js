@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   SafeAreaView,
-  StyleSheet, ImageBackground,
+  StyleSheet, 
   Button,
   ActivityIndicator,
   ScrollView,
@@ -16,7 +16,7 @@ import Titulo from '../components/titulo';
 
 
 const validationSchema = yup.object().shape({
-    
+
   nombre: yup
   .string()
   .label('Nombre')
@@ -47,12 +47,6 @@ export default class Registro extends React.Component {
 
     <View style={styles.container}>
     
-      <ImageBackground 
-        source={require('../assets/blured.jpg')}
-        style={{ flex: 1,
-          width: null,
-          height: null,
-          }}>
           <View style={styles.container2}>
             <SafeAreaView>
               <ScrollView>
@@ -123,7 +117,7 @@ export default class Registro extends React.Component {
             </ScrollView>
             </SafeAreaView>
           </View>
-      </ImageBackground>
+  
     </View>
 
 );

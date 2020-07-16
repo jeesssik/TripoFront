@@ -1,3 +1,5 @@
+
+
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import 'react-native-gesture-handler';
@@ -8,14 +10,23 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login from '../screens/login'
 import Registro from '../screens/registro'
 import TyC from '../screens/TyC'
-
+import BotTabNav from '../navigation/BottomTabNavigator'
 
 
 
 function PantallaLogin({navigation}) {
   return (
    
-     <Login irme={() => navigation.navigate('Registro')} />
+    <Login irme={() => navigation.navigate('Registro')} navigation={navigation} />
+
+  );
+}
+
+function PantallasBotTabNav({navigation}) {
+  return (
+   
+    <BotTabNav out={() => navigation.navigate('Loging')} navigation={navigation} />
+
   );
 }
 
@@ -45,6 +56,7 @@ function App() {
         <Stack.Screen name="Login" component={PantallaLogin} />
         <Stack.Screen name="Registro" component={PantallaRegistro} />
         <Stack.Screen name="Terminos" component={Terminos} />
+        <Stack.Screen name="BotTabNav" component={PantallasBotTabNav} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -66,6 +78,7 @@ const styles = StyleSheet.create({
   
   
 });
+
 
 
 

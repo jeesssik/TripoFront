@@ -6,15 +6,22 @@ import { Text,TextInput} from 'react-native-paper';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 const axios = require('axios');
+<<<<<<< HEAD
 
+=======
+>>>>>>> jess
 
 import Titulo from '../components/titulo';
 
 const validationSchema = yup.object().shape({
   userName: yup
     .string()
+<<<<<<< HEAD
     .label('usuario')
     //.email()
+=======
+    .label('Usuario o Email')
+>>>>>>> jess
     .required(),
   contrasenia: yup
     .string()
@@ -40,19 +47,39 @@ export default class Login extends React.Component {
           <Titulo content='Tripo' /> 
           <Text style={{ marginLeft: 30,fontSize:24,color:"#2a3078" }}>Login</Text>
           <SafeAreaView style={{ marginTop: 40 }}>
-            <Formik
-              initialValues={{ userName: '', contrasenia: '' }}
-              onSubmit={(values, actions) => {
-                  axios.post('https://immense-scrubland-96694.herokuapp.com/login/signin', values)
-                  .then((response) =>{
-                    console.log(response.data.token);
-                  })
-                  .catch(function (error) {
-                    console.log(error.response);
-                  })
-              }}
-              validationSchema={validationSchema}
-            >
+          <Formik
+            initialValues={{ userName: '', contrasenia: '' }}
+            onSubmit={(values, actions) => {
+                let nav = this.props.navigation
+                axios.post('https://immense-scrubland-96694.herokuapp.com/login/signin', {
+                  userName: values.email,
+                  contrasenia: values.password
+                })
+                .then(function(response) {
+                  if (response.data.status != "error"){
+                    let token = response.data.token
+                    axios({
+                      method: 'get',
+                      url: 'https://immense-scrubland-96694.herokuapp.com/users/user/'+values.email,
+                      headers: { 
+                        'Authorization': 'Bearer ' +  token,
+                    }
+                      
+                }).then(function(res){
+
+                  console.log(JSON.stringify(res.data));
+                  nav.navigate('BotTabNav')
+
+                  }).catch(function (error) {
+                    console.log(error);
+              });
+                  }else {
+                    console.log(res.data.messages);
+                  }}).catch(function(e){
+                    console.log(e);
+                  });
+            }}
+            validationSchema={validationSchema}>
               {formikProps => (
                 <React.Fragment>
                   <View style={{ marginHorizontal: 20, marginVertical: 5 }}>

@@ -15,7 +15,7 @@ yarn add @react-navigation/native
 
 
 
-//validacion de formularios
+***validacion de formularios***
 yarn add formik@1.4.0
 yarn add yup@0.26.6
 
@@ -23,6 +23,7 @@ yarn add yup@0.26.6
 yarn add @react-native-community/async-storage
 
 
+<<<<<<< HEAD
 IMAGE PICKER DE EXPO
 expo install expo-image-picker
 
@@ -30,5 +31,11 @@ EXPO CAMERA
 expo install expo-camera
 MAPS
 expo install react-native-maps
+=======
+***Expo Image picker***
+expo install expo-image-picker
+
+
+>>>>>>> jess
 
 live search?? https://www.npmjs.com/package/react-native-search-filter

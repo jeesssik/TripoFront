@@ -1,3 +1,4 @@
+
 import * as React from 'react';
 import { AsyncStorage, Text, Button,TextInput, View, StyleSheet} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -35,7 +36,7 @@ function SignInScreen() {
   const { signIn } = React.useContext(AuthContext);
 
   return (
-    
+  /*
     <View>
       <TextInput
         placeholder="Username"
@@ -51,8 +52,8 @@ function SignInScreen() {
       <Button title="Sign in" onPress={() => signIn({ username, password })} />
     </View>
     
-    
-    //<NavegaLog />
+    */
+    <NavegaLog />
   
   );
 }
@@ -187,3 +188,7 @@ const styles = StyleSheet.create({
    }
   
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> jess
