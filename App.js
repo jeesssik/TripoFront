@@ -188,7 +188,3 @@ const styles = StyleSheet.create({
    }
   
 });
-<<<<<<< HEAD
-=======
-
->>>>>>> jess
