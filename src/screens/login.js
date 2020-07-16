@@ -6,22 +6,13 @@ import { Text,TextInput} from 'react-native-paper';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 const axios = require('axios');
-<<<<<<< HEAD
-
-=======
->>>>>>> jess
 
 import Titulo from '../components/titulo';
 
 const validationSchema = yup.object().shape({
-  userName: yup
+  email: yup
     .string()
-<<<<<<< HEAD
-    .label('usuario')
-    //.email()
-=======
     .label('Usuario o Email')
->>>>>>> jess
     .required(),
   contrasenia: yup
     .string()
@@ -83,15 +74,15 @@ export default class Login extends React.Component {
               {formikProps => (
                 <React.Fragment>
                   <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
-                    <Text style={{ marginBottom: 3 }}>Email</Text>
-                    <TextInput name = "userName"
+                    <Text style={{ marginBottom: 3 }}>Email o Usuario</Text>
+                    <TextInput name = "Usuario O Email"
                       placeholder="johndoe@example.com"
                       style={{
                         backgroundColor:"rgba(192,192,192,0.3)",
                         marginBottom: 3,
                       }}
-                      onChangeText={formikProps.handleChange('userName')}
-                      onBlur={formikProps.handleBlur('userName')}
+                      onChangeText={formikProps.handleChange('email')}
+                      onBlur={formikProps.handleBlur('email')}
                      // autoFocus
                     />
                     <Text style={{ color: 'darkred' }}>
@@ -101,14 +92,14 @@ export default class Login extends React.Component {
 
                   <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
                     <Text style={{ marginBottom: 3 }}>Password</Text>
-                    <TextInput name="contrasenia"
+                    <TextInput name="password"
                       placeholder="password"
                       style={{
                         backgroundColor:"rgba(192,192,192,0.3)",
                         marginBottom: 3,
                       }}
-                      onChangeText={formikProps.handleChange('contrasenia')}
-                      onBlur={formikProps.handleBlur('contrasenia')}
+                      onChangeText={formikProps.handleChange('password')}
+                      onBlur={formikProps.handleBlur('password')}
                       secureTextEntry
                     />
                     <Text style={{ color: 'darkred' }}>

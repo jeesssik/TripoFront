@@ -6,13 +6,8 @@ import Perfil from '../screens/Perfil';
 import Creacion from '../screens/creacionPost';
 import Buscar from '../screens/buscar';
 import { View } from 'react-native';
-<<<<<<< HEAD
 //import CamaraTripo from '../screens/CamaraTripo'
 //const Publicaciones = () => <Text>Music</Text>;
-=======
-
-
->>>>>>> jess
 
 const AlbumsRoute = () => <Text>Albums</Text>;
 
